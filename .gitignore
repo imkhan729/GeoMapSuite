@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.next-hostinger-build/
+out/
+.env
+.env.local
+.env.production
+.env.*.local
+coverage/
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

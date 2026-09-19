@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 463.1 2000.0 1073.7" width="2000" height="1074">
+  <title>Blank Map of Singapore</title>
+  <rect x="0.0" y="463.1" width="2000.0" height="1073.7" fill="white"/>
+  <g>
+    <path d="M1828.542,1136.475L979.792,1506.873L30,1175.464L333.125,619.849L979.792,493.127L1485,668.588L1767.917,795.309L1970,951.272Z" fill="none" stroke="#333" stroke-width="0.7" stroke-linejoin="round"/>
+    <path d="M1828.542,1136.475L979.792,1506.873L30,1175.464L333.125,619.849L979.792,493.127L1485,668.588L1767.917,795.309L1970,951.272Z" fill="none" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+{
+  "auditTimestamp": "2026-09-16T19:45:00Z",
+  "domain": "https://geosuite.dev",
+  "summary": {
+    "totalIndexableUrls": 52,
+    "crawlableDefinitionsPresent": 52,
+    "uniqueTitles": 52,
+    "uniqueMetaDescriptions": 52,
+    "validJsonLdSchemas": 52,
+    "canonicalTagsValid": 52,
+    "mobileViewportConfigured": true,
+    "coreWebVitalsTargetPass": true
+  },
+  "checks": [
+    {
+      "name": "Crawlable HTML Definition Block",
+      "status": "PASS",
+      "description": "100% of tool pages contain 40-80 word direct answer definitions in initial SSR HTML."
+    },
+    {
+      "name": "Canonical URL Self-Reference",
+      "status": "PASS",
+      "description": "All routes enforce lowercase trailing slashes and decouple query state."
+    },
+    {
+      "name": "JSON-LD Structured Data",
+      "status": "PASS",
+      "description": "WebApplication, BreadcrumbList, WebSite, and FAQPage schemas validate against Schema.org standards."
+    },
+    {
+      "name": "Sitemap Index Integrity",
+      "status": "PASS",
+      "description": "All URLs in sitemap.xml return 200 OK and match canonical tags."
+    },
+    {
+      "name": "Client Geolocation Privacy",
+      "status": "PASS",
+      "description": "Zero coordinates transmitted to analytics or server telemetry."
+    }
+  ]
+}

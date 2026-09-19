@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  geosuite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: geosuite-app
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_NAME=GeoSuite
+      - NEXT_PUBLIC_SITE_URL=https://geosuite.dev
+      - NEXT_PUBLIC_MAP_STYLE_URL=https://tiles.openfreemap.org/styles/liberty
+      - GEOCODING_PROVIDER=nominatim
+      - ELEVATION_PROVIDER=open-meteo

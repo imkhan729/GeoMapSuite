@@ -1,0 +1,69 @@
+url,type,primary_keyword,priority,changefreq,schema_type
+https://geosuite.dev/,Home,geographic tools,1.0,daily,WebSite
+https://geosuite.dev/tools/,Directory,all geographic tools,0.9,daily,CollectionPage
+https://geosuite.dev/tools/map-radius/,Tool,map radius,0.9,weekly,WebApplication
+https://geosuite.dev/tools/map-area-calculator/,Tool,map area calculator,0.9,weekly,WebApplication
+https://geosuite.dev/tools/distance-between-places/,Tool,distance between two places,0.9,weekly,WebApplication
+https://geosuite.dev/tools/latitude-longitude-finder/,Tool,latitude longitude finder,0.9,weekly,WebApplication
+https://geosuite.dev/tools/address-to-coordinates/,Tool,address to coordinates,0.8,weekly,WebApplication
+https://geosuite.dev/tools/coordinates-to-address/,Tool,coordinates to address,0.8,weekly,WebApplication
+https://geosuite.dev/tools/gps-coordinate-converter/,Tool,gps coordinate converter,0.9,weekly,WebApplication
+https://geosuite.dev/tools/elevation-finder/,Tool,elevation finder,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-is-my-elevation/,Tool,what is my elevation,0.8,weekly,WebApplication
+https://geosuite.dev/tools/drive-time-map/,Tool,drive time map,0.9,weekly,WebApplication
+https://geosuite.dev/tools/pin-drop-map/,Tool,pin drop map,0.8,weekly,WebApplication
+https://geosuite.dev/tools/csv-to-map/,Tool,csv to map,0.8,weekly,WebApplication
+https://geosuite.dev/tools/map-drawer/,Tool,map drawer,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-county-am-i-in/,Tool,what county am i in,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-state-am-i-in/,Tool,what state am i in,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-city-am-i-in/,Tool,what city am i in,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-zip-code-am-i-in/,Tool,what zip code am i in,0.8,weekly,WebApplication
+https://geosuite.dev/tools/what-country-am-i-in/,Tool,what country am i in,0.8,weekly,WebApplication
+https://geosuite.dev/tools/sunrise-sunset-calculator/,Tool,sunrise sunset calculator,0.8,weekly,WebApplication
+https://geosuite.dev/tools/sun-position-calculator/,Tool,sun position calculator,0.8,weekly,WebApplication
+https://geosuite.dev/tools/day-night-map/,Tool,day night map,0.8,weekly,WebApplication
+https://geosuite.dev/tools/moon-phase-calendar/,Tool,moon phase calendar,0.8,weekly,WebApplication
+https://geosuite.dev/tools/antipode-finder/,Tool,antipode finder,0.8,weekly,WebApplication
+https://geosuite.dev/tools/earth-tunnel-map/,Tool,earth tunnel map,0.8,weekly,WebApplication
+https://geosuite.dev/tools/random-location-generator/,Tool,random location generator,0.8,weekly,WebApplication
+https://geosuite.dev/tools/geographic-center-finder/,Tool,geographic center finder,0.8,weekly,WebApplication
+https://geosuite.dev/tools/kml-viewer/,Tool,kml viewer,0.8,weekly,WebApplication
+https://geosuite.dev/tools/geojson-viewer/,Tool,geojson viewer,0.8,weekly,WebApplication
+https://geosuite.dev/tools/gpx-viewer/,Tool,gpx viewer,0.8,weekly,WebApplication
+https://geosuite.dev/maps/blank/,Directory,printable blank maps,0.9,weekly,CollectionPage
+https://geosuite.dev/maps/blank/world/,Map,blank world map,0.8,weekly,CreativeWork
+https://geosuite.dev/maps/blank/united-states/,Map,blank us map,0.8,weekly,CreativeWork
+https://geosuite.dev/maps/blank/europe/,Map,blank europe map,0.8,weekly,CreativeWork
+https://geosuite.dev/maps/blank/california/,Map,california blank map,0.7,weekly,CreativeWork
+https://geosuite.dev/maps/blank/texas/,Map,texas blank map,0.7,weekly,CreativeWork
+https://geosuite.dev/states/,Directory,us states reference,0.8,weekly,CollectionPage
+https://geosuite.dev/states/california/,State,california county map,0.7,monthly,Dataset
+https://geosuite.dev/states/texas/,State,texas county map,0.7,monthly,Dataset
+https://geosuite.dev/states/florida/,State,florida county map,0.7,monthly,Dataset
+https://geosuite.dev/states/new-york/,State,new york county map,0.7,monthly,Dataset
+https://geosuite.dev/geography/equator/,Geoline,the equator,0.7,monthly,Article
+https://geosuite.dev/geography/prime-meridian/,Geoline,prime meridian,0.7,monthly,Article
+https://geosuite.dev/geography/tropic-of-cancer/,Geoline,tropic of cancer,0.7,monthly,Article
+https://geosuite.dev/geography/tropic-of-capricorn/,Geoline,tropic of capricorn,0.7,monthly,Article
+https://geosuite.dev/geography/arctic-circle/,Geoline,arctic circle,0.7,monthly,Article
+https://geosuite.dev/geography/antarctic-circle/,Geoline,antarctic circle,0.7,monthly,Article
+https://geosuite.dev/geography/international-date-line/,Geoline,international date line,0.7,monthly,Article
+https://geosuite.dev/guides/,Directory,geographic guides,0.8,weekly,CollectionPage
+https://geosuite.dev/guides/how-to-draw-radius-on-map/,Guide,how to draw radius on map,0.7,monthly,Article
+https://geosuite.dev/guides/geodesic-vs-driving-distance/,Guide,geodesic vs driving distance,0.7,monthly,Article
+https://geosuite.dev/guides/guide-to-geographic-coordinates/,Guide,geographic coordinates guide,0.7,monthly,Article
+https://geosuite.dev/guides/geojson-vs-kml-vs-gpx/,Guide,geojson vs kml vs gpx,0.7,monthly,Article
+https://geosuite.dev/studies/,Directory,geospatial studies,0.8,monthly,CollectionPage
+https://geosuite.dev/studies/straight-line-vs-driving-distance-metro-study/,Study,straight line vs driving distance study,0.8,monthly,Dataset
+https://geosuite.dev/glossary/,Directory,geographic glossary,0.7,monthly,CollectionPage
+https://geosuite.dev/glossary/geodesic-distance/,Glossary,geodesic distance definition,0.6,monthly,DefinedTerm
+https://geosuite.dev/glossary/isochrone/,Glossary,isochrone map definition,0.6,monthly,DefinedTerm
+https://geosuite.dev/glossary/wgs84/,Glossary,wgs84 datum definition,0.6,monthly,DefinedTerm
+https://geosuite.dev/glossary/utm/,Glossary,utm coordinate system definition,0.6,monthly,DefinedTerm
+https://geosuite.dev/methodology/,Trust,mathematical methodology,0.6,monthly,Article
+https://geosuite.dev/data-sources/,Trust,data sources licenses,0.6,monthly,Article
+https://geosuite.dev/editorial-policy/,Trust,editorial policy,0.5,monthly,Article
+https://geosuite.dev/corrections/,Trust,corrections changelog,0.5,monthly,Article
+https://geosuite.dev/privacy/,Trust,privacy policy,0.4,monthly,Article
+https://geosuite.dev/terms/,Trust,terms of service,0.4,monthly,Article
+https://geosuite.dev/about/,Trust,about geosuite,0.5,monthly,AboutPage
