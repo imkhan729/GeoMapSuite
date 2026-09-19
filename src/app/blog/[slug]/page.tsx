@@ -637,7 +637,7 @@ export default async function BlogPostPage(props: {
                 </strong>
                 <p className="text-[#737067]">{post.reviewer.role}</p>
                 <p className="leading-relaxed pt-1">
-                  Verified for mathematical precision against the WGS84 ellipsoidal standard, OpenStreetMap road network graph accuracy, and USGS 3DEP LiDAR datums.
+                  Reviewed against the calculation method and source limitations documented for each tool. Provider-backed results and real-world conditions can vary.
                 </p>
               </div>
             </div>

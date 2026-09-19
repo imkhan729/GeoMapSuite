@@ -68,7 +68,12 @@ export function DriveTimeMapView() {
 
   return (
     <div className="space-y-6">
-      <TrustStrip dataSource="OpenStreetMap Road Network Graph" accuracyMode="Multi-Band Isochrone Polygons" />
+      <TrustStrip dataSource="OpenStreetMap basemap; local speed estimates" accuracyMode="Approximate Multi-Band Travel Rings" />
+
+      <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900">
+        These bands are planning estimates calculated from average travel speeds. They do not follow roads,
+        traffic, barriers, or turn restrictions and must not be used for dispatch, navigation, or safety decisions.
+      </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column Controls */}

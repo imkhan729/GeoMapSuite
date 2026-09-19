@@ -5,15 +5,15 @@ import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
 import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Privacy Policy & Zero-Tracking Guarantee | ${SITE_CONFIG.name}`,
-  description: 'Our privacy commitment: zero coordinate tracking, 100% client-side calculation execution, no selling of user location data, and local file parsing.',
+  title: `Privacy Policy & Location Data Practices | ${SITE_CONFIG.name}`,
+  description: 'How GeoMap Suite handles coordinates, local file processing, third-party map and geocoding requests, analytics, and user privacy.',
   alternates: { canonical: buildCanonicalUrl('/privacy') },
 };
 
 const privacyFaqs = [
   {
     question: 'Does GeoMap Suite track or store my GPS location coordinates?',
-    answer: 'No. GeoMap Suite is engineered with a privacy-by-design architecture. When you click "Detect My Location" or drop pins on the map, coordinates are processed solely inside your browser. We never log, store, or transmit your device coordinates to our servers or databases.',
+    answer: 'GeoMap Suite does not maintain an account database or intentionally store your GPS coordinates. Core calculations run in your browser. When you use map tiles, address search, reverse geocoding, or elevation lookup, the necessary query or coordinates are sent directly from your browser to the relevant third-party provider so that feature can work.',
   },
   {
     question: 'Are my uploaded GeoJSON, KML, CSV, or Shapefiles stored on your servers?',
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
 
       <div className="space-y-3">
         <h1 className="text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
-          Privacy Policy & Zero Location Tracking Guarantee
+          Privacy Policy & Location Data Practices
         </h1>
         <p className="text-sm leading-relaxed text-navy-600">
           Geographic coordinates are sensitive personal data. We built our platform with a privacy-by-design architecture ensuring your location data never enters our analytics or server databases.
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
         <ul className="space-y-2 text-xs sm:text-sm text-emerald-950">
           <li className="flex items-start gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-            <span><strong>Zero Coordinate Logging:</strong> We never log, store, or transmit your device GPS coordinates or custom map pins.</span>
+            <span><strong>No GeoMap Suite Coordinate Database:</strong> We do not intentionally log or store your GPS coordinates; provider-backed lookups send the required data directly to the relevant third party.</span>
           </li>
           <li className="flex items-start gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />

@@ -593,7 +593,7 @@ export default function ToolsDirectoryPage() {
   const toolsFaqs = [
     {
       q: 'What are the most popular free online map tools on GeoMap Suite?',
-      a: 'The flagship tools on GeoMap Suite include the Map Radius Tool (drawing concentric distance circles), Drive Time Map (calculating travel isochrones by car, bike, or walking), Map Area Calculator (measuring polygon acreage on satellite imagery), Distance Between Two Places (computing true WGS84 great-circle geodesics), What County Am I In (detecting county jurisdiction by GPS or address), and the Elevation Finder (retrieving height above sea level via Copernicus 30m DEM).',
+      a: 'The flagship tools on GeoMap Suite include the Map Radius Tool (drawing concentric distance circles), Drive Time Map (creating approximate average-speed travel rings), Map Area Calculator (measuring polygon acreage), Distance Between Two Places (computing WGS84 geodesics), What County Am I In, and the Elevation Finder.',
     },
     {
       q: 'How do I draw a radius circle on a map for free?',
@@ -605,7 +605,7 @@ export default function ToolsDirectoryPage() {
     },
     {
       q: 'What is the difference between straight-line distance and a drive time isochrone?',
-      a: 'A straight-line distance ("as the crow flies") calculates the shortest geometric path across Earth\'s ellipsoidal curve, ignoring terrain and physical obstacles. A drive time map (isochrone) traces actual OpenStreetMap road networks, bridge crossings, speed limits, and one-way restrictions to visualize the true area you can reach in 15, 30, 45, or 60 minutes.',
+      a: 'A straight-line distance calculates the shortest geometric path across Earth. GeoMap Suite\'s drive-time tool converts average travel speeds into approximate 15, 30, 45, or 60-minute planning rings; it does not trace roads or account for traffic, bridges, barriers, or turn restrictions.',
     },
     {
       q: 'Can I convert coordinates between Decimal Degrees, UTM, and MGRS for free?',

@@ -89,11 +89,11 @@ export default function HomePage() {
     },
     {
       q: 'How does the Drive Time Map calculate travel time polygons (isochrones)?',
-      a: 'The Drive Time Map computes reachable travel time polygons (15, 30, 45, or 60 minutes) using OpenStreetMap road network graphs and realistic vehicular routing speeds that account for road classifications, speed limits, and one-way restrictions. It generates concave hull polygons showing actual accessible travel zones rather than arbitrary straight-line radius circles.',
+      a: 'The Drive Time Map creates approximate 15, 30, 45, or 60-minute travel rings from average speeds for driving, cycling, or walking. The estimates are useful for early planning, but they do not follow the road network, live traffic, barriers, or turn restrictions.',
     },
     {
       q: 'How does client-side processing protect my data privacy?',
-      a: 'Unlike online GIS platforms that upload your GPS coordinates, property addresses, and proprietary spatial files to remote servers, our core geometry engines execute entirely in your web browser using modern JavaScript and WebAssembly. Your location data and uploaded files never leave your device.',
+      a: 'Core geometry calculations and file parsing run in your browser. Features such as address search, reverse geocoding, map tiles, and elevation lookup send the necessary query or coordinates to the named third-party data provider; uploaded spatial files are processed locally.',
     },
     {
       q: 'How accurate is the Map Area Calculator for measuring property acreage?',
@@ -333,8 +333,8 @@ export default function HomePage() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#54524b] leading-relaxed mt-2">
-                  Generates realistic 15, 30, 45, and 60-minute driving, walking, or cycling reachable area
-                  polygons based on OpenStreetMap road networks, speed limits, and traffic patterns.
+                  Creates approximate 15, 30, 45, and 60-minute driving, walking, or cycling planning rings
+                  from average travel speeds. No account or API key is required.
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 pt-3">
@@ -345,7 +345,7 @@ export default function HomePage() {
                     OpenStreetMap
                   </span>
                   <span className="px-2 py-0.5 text-[10px] font-medium rounded-md bg-[#f7f6f2] text-[#6b6860] border border-[#e8e6e1]">
-                    Concave Hulls
+                    Planning Estimate
                   </span>
                 </div>
               </div>
@@ -355,7 +355,7 @@ export default function HomePage() {
                   <span>Generate Drive Time</span>
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="text-[11px] font-normal text-[#8a8880]">Road Network · Free</span>
+                <span className="text-[11px] font-normal text-[#8a8880]">Approximate · Free</span>
               </div>
             </Link>
 

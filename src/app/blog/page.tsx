@@ -30,7 +30,7 @@ const BLOG_HUB_FAQS = [
   {
     question: 'How are distance and detour factor calculations verified?',
     answer:
-      'All geodesic distances are computed on the WGS84 reference ellipsoid using Charles Karney\'s algorithm with nanometer precision. Road network driving distances and detour factors are verified across tens of thousands of real-world routes using OpenStreetMap graphs and contraction hierarchies.',
+      'Our articles explain WGS84 geodesic calculations, coordinate systems, file formats, and the difference between straight-line estimates and road-network routing. Tool limitations are stated on the relevant calculator pages.',
   },
   {
     question: 'Can I use GeoMap Suite blog datasets and formulas in academic research?',
@@ -50,7 +50,7 @@ const BLOG_HUB_FAQS = [
   {
     question: 'Are the interactive GIS tools on GeoMap Suite free and private?',
     answer:
-      'Yes. All mapping tools and converters in GeoMap Suite run client-side in your local web browser. Your coordinates, uploaded CSV spreadsheets, and customer locations are never transmitted to or stored on remote cloud servers.',
+      'Core calculations and uploaded-file parsing run in your browser. Provider-backed features such as map tiles, address search, reverse geocoding, and elevation lookup send the required request data directly to their third-party providers.',
   },
 ];
 

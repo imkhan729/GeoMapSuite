@@ -535,8 +535,8 @@ export const whatIsMyElevationContent: ToolContent = {
 export const driveTimeMapContent: ToolContent = {
   slug: 'drive-time-map',
   primaryKeyword: 'drive time map',
-  searchIntent: 'Generate 15, 30, 45, and 60-minute driving travel time polygons (isochrones) on an interactive road map.',
-  directAnswer: 'The Drive Time Map creates reachable travel-time boundary polygons (isochrones) around any starting address or coordinates. Unlike a straight-line radius circle, isochrones evaluate actual road networks, highway speed limits, bridge crossings, and travel modes (driving by car, cycling, walking) to show how far you can travel within 15, 30, 45, or 60 minutes with exportable GeoJSON data.',
+  searchIntent: 'Estimate 15, 30, 45, and 60-minute travel areas for driving, cycling, or walking on an interactive map.',
+  directAnswer: 'The Drive Time Map creates approximate travel-time rings around an address or coordinates. It multiplies each selected duration by a representative average speed for driving, cycling, or walking. The exported GeoJSON is useful for early planning, but the rings do not follow roads or account for traffic, barriers, bridges, or turn restrictions.',
   howTo: [
     { title: 'Set starting location', description: 'Search a street address, landmark, city, or click anywhere directly on the interactive map.' },
     { title: 'Select travel mode', description: 'Choose between Driving (passenger car), Cycling (bicycle), or Walking (pedestrian paths).' },
@@ -547,25 +547,23 @@ export const driveTimeMapContent: ToolContent = {
   examples: [
     {
       title: 'Worked Example 1: 30-Minute Commute Zone in Austin, TX',
-      scenario: 'A homebuyer visualizes all residential neighborhoods reachable within a 30-minute drive of Downtown Austin during typical traffic.',
+      scenario: 'A homebuyer creates a preliminary 30-minute planning ring around Downtown Austin before checking candidate routes in a navigation service.',
       inputs: [
         { label: 'Origin', value: 'Downtown Austin, TX (30.2672° N, 97.7431° W)' },
         { label: 'Travel Mode', value: 'Driving (Car)' },
         { label: 'Duration Band', value: '30 Minutes' }
       ],
       steps: [
-        'Query OpenStreetMap road network graph using Dijkstra / Contraction Hierarchies routing engine.',
-        'Evaluate maximum road travel distances based on posted highway (65–75 mph) and urban arterial speed limits (30–45 mph).',
-        'Construct concave alpha-shape polygon enclosing all reachable road network nodes within 1,800 seconds.',
-        'Resulting Isochrone Area: 345.2 sq miles (220,928 acres).'
+        'Apply the tool\'s representative driving speed to the 30-minute duration.',
+        'Convert the estimated travel distance into a geodesic ring around the origin.',
+        'Inspect the ring as a broad screening area, then verify real routes separately.'
       ],
       output: [
         { label: 'Isochrone Time', value: '30 Minutes Driving' },
-        { label: 'Reachable Land Area', value: '345.2 sq miles' },
-        { label: 'Maximum Highway Reach', value: 'Up to 26 miles along I-35 corridor' },
-        { label: 'Surface Street Reach', value: '8 to 12 miles through city grid' }
+        { label: 'Result Type', value: 'Approximate geodesic planning ring' },
+        { label: 'Road and Traffic Detail', value: 'Not included' }
       ],
-      explanation: 'Travel reach extends twice as far along interstate corridors (I-35, MoPac) compared to local residential surface streets, creating an organic star-shaped catchment.'
+      explanation: 'The result is intentionally simple and should be treated as a first-pass search area, not a promise that every point is reachable within 30 minutes.'
     },
     {
       title: 'Worked Example 2: 15-Minute Urban Delivery Zone for a Distribution Hub',
@@ -576,37 +574,37 @@ export const driveTimeMapContent: ToolContent = {
         { label: 'Time Window', value: '15 Minutes' }
       ],
       steps: [
-        'Model Chicago dense street grid with one-way street constraints and bridge crossings over the Chicago River.',
-        'Compute maximum reachable vertices under urban speed limits (20–30 mph).',
-        'Generate 15-minute concave polygon covering 38.6 square miles.'
+        'Select driving mode and a 15-minute band.',
+        'Generate an average-speed geodesic planning ring.',
+        'Check actual streets, traffic, access rules, and delivery feasibility in a routing product.'
       ],
       output: [
         { label: 'Delivery Window', value: '15 Minutes' },
-        { label: 'Serviceable Area', value: '38.6 sq miles (24,704 acres)' },
-        { label: 'River Crossing Bottlenecks', value: 'Constrained by bridge access points' }
+        { label: 'Serviceable Area', value: 'Preliminary estimate only' },
+        { label: 'River Crossing Bottlenecks', value: 'Not modeled' }
       ],
-      explanation: 'Natural waterways and bridge locations restrict travel time boundaries significantly compared to open highway corridors.'
+      explanation: 'Waterways, bridges, private roads, and congestion can make the true service area much smaller or differently shaped than the estimate.'
     }
   ],
   resultExplanation: [
     {
       heading: 'Distance Radius Circle vs. Road Isochrone Polygon',
-      body: 'A 15-mile straight-line radius circle assumes you can travel in a straight line at infinite speed across water, private land, and unpaved terrain. An isochrone reflects physical road networks, traffic directions, bridge crossings, and actual speed limits, creating an accurate, realistic catchment area.'
+      body: 'This tool converts time and a representative speed into an approximate distance ring. A true road-network isochrone requires a routing engine and can be irregular because it accounts for streets, barriers, and turn restrictions; this free static tool does not model those details.'
     },
     {
-      heading: 'Why Isochrones Extend Further Along Expressways',
-      body: 'Because interstate freeways allow speeds of 65–75 mph while city streets average 25–35 mph, a 30-minute driving isochrone naturally stretches along major transit spines, forming an irregular star shape.'
+      heading: 'Why the Real Reachable Area May Differ',
+      body: 'Actual travel varies with road class, congestion, intersections, access restrictions, terrain, and barriers. Verify important trips with a current navigation or routing service.'
     }
   ],
   methodology: {
-    formulaTitle: 'Road Network Graph Shortest-Path Routing (Valhalla / OSRM)',
-    formulaDescription: 'Evaluates edge travel weights across directed OpenStreetMap street graph networks to generate reachable concave hulls.',
-    mathFormula: 'Isochrone(P0, T) = ConcaveHull({ v ∈ Graph | shortest_path_time(P0, v) ≤ T })',
-    datum: 'WGS84 / OpenStreetMap Road Network',
-    precision: 'Road segment level routing accuracy',
+    formulaTitle: 'Average-Speed Travel-Distance Estimate',
+    formulaDescription: 'Multiplies time by a representative mode speed, then draws a WGS84 geodesic ring around the selected origin.',
+    mathFormula: 'Estimated distance = average mode speed × travel time',
+    datum: 'WGS84 geodesic geometry',
+    precision: 'Broad planning estimate; not road-level routing',
     limitations: [
-      'Real-time traffic congestion, accidents, and seasonal construction will alter real-world travel speeds.',
-      'Toll roads and express lanes may require separate routing permissions.'
+      'The rings do not follow roads or include traffic, barriers, bridges, turns, terrain, or access restrictions.',
+      'Use a current routing service before making travel, dispatch, safety, property, or service-area decisions.'
     ],
     sources: [
       { name: 'OpenStreetMap Routing Project (OSRM)', url: 'https://project-osrm.org/' },
@@ -629,9 +627,9 @@ export const driveTimeMapContent: ToolContent = {
       audience: 'Franchisees, Site Selectors, Commercial Brokers'
     },
     {
-      title: 'Emergency Medical & Fire Service Coverage',
-      description: 'Model 8-minute and 10-minute emergency response perimeters from fire stations and trauma centers.',
-      audience: 'Municipal Planners, Paramedics, Public Safety Officials'
+      title: 'Non-Critical Early Planning',
+      description: 'Create a rough visual screening area before using an authoritative routing, traffic, or dispatch system. Never use these estimates for emergency response.',
+      audience: 'Researchers, Students, Early-Stage Planners'
     },
     {
       title: 'Mobile Service & Delivery Dispatch',
@@ -642,7 +640,7 @@ export const driveTimeMapContent: ToolContent = {
   troubleshooting: [
     {
       question: 'Why does the drive time polygon look irregular or jagged?',
-      answer: 'Isochrones follow actual roads, highways, and bridge crossings. If there is a river, bay, or mountain range with few bridges, the polygon will have natural cutouts reflecting areas that cannot be reached in time.'
+      answer: 'This tool draws smooth geodesic estimate rings. It does not follow roads or create cutouts for rivers, bays, mountains, or limited bridge crossings.'
     },
     {
       question: 'Can I generate isochrones for walking and bicycling?',
@@ -652,7 +650,7 @@ export const driveTimeMapContent: ToolContent = {
   faqs: [
     {
       question: 'What is a drive time map (isochrone)?',
-      answer: 'A drive time map (isochrone) is an interactive visualization connecting all geographic points that can be reached from a starting address within a specified duration of travel time (e.g., 15, 30, 45, or 60 minutes) following actual road networks.'
+      answer: 'A true isochrone represents locations reachable within a specified travel time. GeoMap Suite provides an approximate average-speed planning ring, not a road-network routing isochrone.'
     },
     {
       question: 'How far can I drive in 30 minutes?',
@@ -660,7 +658,7 @@ export const driveTimeMapContent: ToolContent = {
     },
     {
       question: 'Why is a drive time isochrone better than a distance radius map?',
-      answer: 'A distance radius circle draws a crude straight line across water, mountains, and cul-de-sacs. A drive time map factors in actual road infrastructure, speed limits, and traffic obstacles, providing a realistic picture of where you can actually travel.'
+      answer: 'Time-based planning rings can be easier to interpret than entering a distance manually, but this tool does not factor in actual roads, traffic, water, mountains, or cul-de-sacs.'
     },
     {
       question: 'Can I export drive time maps to Google Earth or GIS software?',
@@ -668,7 +666,7 @@ export const driveTimeMapContent: ToolContent = {
     },
     {
       question: 'Does GeoMap Suite require an API key or account to generate isochrones?',
-      answer: 'No. GeoMap Suite provides free, unlimited isochrone mapping without requiring an account, credit card, or API key.'
+      answer: 'No account, credit card, or API key is required. Address search uses a public geocoding provider, so fair-use limits and temporary availability restrictions may apply.'
     }
   ],
   sources: [

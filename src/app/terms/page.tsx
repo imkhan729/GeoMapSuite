@@ -24,7 +24,7 @@ const termsFaqs = [
   },
   {
     question: 'Can I rely on GeoMap Suite drive-time isochrones for emergency vehicle dispatch?',
-    answer: 'No. Drive-time isochrones and road routing approximations are estimated based on average historical travel speeds and road graph topology. They must not be used for life-safety critical operations, 911 emergency vehicle dispatch, or hazardous marine navigation.',
+    answer: 'No. The travel-time rings use representative average speeds and do not model road topology, traffic, barriers, or emergency response conditions. They must not be used for life-safety operations, dispatch, navigation, or hazardous marine decisions.',
   },
   {
     question: 'Does GeoMap Suite offer an SLA or uptime warranty?',
@@ -79,7 +79,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-navy-900">2. Routing & Navigation Disclaimer</h2>
           <p>
-            Isochrone drive-time polygons and distance measurements reflect approximate road speeds and graph algorithms. They must not be relied upon for safety-critical emergency vehicle dispatch or hazardous marine navigation.
+            Travel-time rings and distance measurements are approximate and do not model road graphs or live conditions. They must not be relied upon for safety-critical emergency dispatch, navigation, or hazardous marine use.
           </p>
         </section>
 
