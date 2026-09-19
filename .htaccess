@@ -1,0 +1,40 @@
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://geomapsuite.com%{REQUEST_URI} [R=301,L]
+
+Redirect 301 /my-elevation /tools/what-is-my-elevation/
+Redirect 301 /elevation-profile /tools/elevation-finder/
+RedirectMatch 301 ^/maps/?$ /maps/blank/
+RedirectMatch 301 ^/maps/([^/]+)/?$ /maps/blank/$1/
+Redirect 301 /tools/map-radius-tool /tools/map-radius/
+Redirect 301 /tools/distance-between-two-places /tools/distance-between-places/
+Redirect 301 /tools/crow-flies-distance /tools/distance-between-places/
+Redirect 301 /tools/halfway-between-two-places /tools/midpoint-calculator/
+Redirect 301 /tools/latitude-longitude-map /tools/latitude-longitude-finder/
+Redirect 301 /tools/utm-to-lat-long /tools/utm-converter/
+Redirect 301 /tools/map-tunnel /tools/earth-tunnel-map/
+Redirect 301 /tools/address-to-county-lookup /tools/what-county-am-i-in/
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
