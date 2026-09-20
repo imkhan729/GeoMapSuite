@@ -10,11 +10,11 @@
 - [Data Sources & Provenance](https://geomapsuite.com/data-sources/): OpenStreetMap, Natural Earth, US Census, NOAA, and Open-Meteo licenses.
 
 ## Interactive Tools
-- [Map Radius Tool](https://geomapsuite.com/tools/map-radius/): Draw accurate distance circles on an interactive map in miles, kilometers, or nautical miles. Calculate radius area, circumference, and export vector geometries.
+- [Map Radius Tool](https://geomapsuite.com/tools/map-radius/): Draw distance circles on a map in miles, kilometers, or nautical miles. Calculate area and circumference, then export the radius boundary.
 - [Map Area Calculator](https://geomapsuite.com/tools/map-area-calculator/): Calculate land and property area on a map by drawing custom polygons. Instantly get measurements in acres, hectares, square feet, square meters, and square miles.
 - [Distance Between Places](https://geomapsuite.com/tools/distance-between-places/): Calculate high-precision geodesic distance, straight-line Great-Circle distance, compass bearing, and geographic midpoint between any two points or addresses.
 - [Coordinate Distance Calculator](https://geomapsuite.com/tools/coordinate-distance-calculator/): Calculate exact mathematical geodesic and Great-Circle distance between two numerical GPS coordinate pairs with sub-millimeter precision.
-- [Drive Time Map (Isochrone Calculator)](https://geomapsuite.com/tools/drive-time-map/): Generate multi-band drive time isochrones (15, 30, 45, 60 minutes) to visualize real-world travel distances by car, cycling, or walking.
+- [Drive Time Map (Isochrone Calculator)](https://geomapsuite.com/tools/drive-time-map/): Create approximate travel-time rings for driving, cycling, or walking from average speeds. Explore 15- to 60-minute areas on a map.
 - [Geofence Generator & Builder](https://geomapsuite.com/tools/geofence-generator/): Create circular and polygon geofences with trigger definitions (enter/exit) and instant GeoJSON export for IoT, fleet tracking, and mobile apps.
 - [Buffer Map (Point, Line & Polygon Buffers)](https://geomapsuite.com/tools/buffer-map/): Create geometric buffer zones around points, lines, and polygons with multi-distance overlays, area calculations, and GeoJSON export.
 - [Latitude and Longitude Finder](https://geomapsuite.com/tools/latitude-longitude-finder/): Find GPS coordinates for any address or click anywhere on the world map to get exact Decimal Degrees (DD), DMS, DMM, UTM, MGRS, and Plus Codes.

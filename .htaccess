@@ -9,7 +9,7 @@ RewriteRule ^ https://geomapsuite.com%{REQUEST_URI} [R=301,L]
 Redirect 301 /my-elevation /tools/what-is-my-elevation/
 Redirect 301 /elevation-profile /tools/elevation-finder/
 RedirectMatch 301 ^/maps/?$ /maps/blank/
-RedirectMatch 301 ^/maps/([^/]+)/?$ /maps/blank/$1/
+RedirectMatch 301 ^/maps/(?!blank/?$)([^/]+)/?$ /maps/blank/$1/
 Redirect 301 /tools/map-radius-tool /tools/map-radius/
 Redirect 301 /tools/distance-between-two-places /tools/distance-between-places/
 Redirect 301 /tools/crow-flies-distance /tools/distance-between-places/
