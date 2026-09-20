@@ -31,7 +31,12 @@ export const metadata: Metadata = {
     'isochrone map',
   ],
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
