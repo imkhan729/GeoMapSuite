@@ -5,9 +5,9 @@ import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
 import { ToolsDirectoryClient, ToolCategorySection } from './ToolsDirectoryClient';
 
 export const metadata: Metadata = {
-  title: `Free Map Tools — 68 Online Cartographic & Geographic Tools | ${SITE_CONFIG.name}`,
+  title: 'Free Map Tools: Radius, Distance & GPS | GeoMap Suite',
   description:
-    '68 free interactive map tools: draw radius circles, calculate drive time isochrones, measure land area, find your county, convert GPS coordinates, view KML/GPX, and map Earth lines. Fast, free, no sign-up.',
+    'Find free map tools for radius circles, distance, land area, GPS coordinates, elevation, county lookup, and KML or GPX files. No account required.',
   keywords: [
     'free map tools',
     'map radius tool',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     canonical: buildCanonicalUrl('/tools'),
   },
   openGraph: {
-    title: `Free Map Tools — 68 Online Geographic Tools | ${SITE_CONFIG.name}`,
+    title: 'Free Map Tools: Radius, Distance & GPS | GeoMap Suite',
     description:
-      '68 free interactive map tools for finding locations, measuring distances and areas, converting coordinates, and creating custom maps.',
+      'Find locations, measure map distance and area, convert GPS coordinates, and explore geographic data with free online tools.',
     url: buildCanonicalUrl('/tools'),
     siteName: SITE_CONFIG.name,
     type: 'website',

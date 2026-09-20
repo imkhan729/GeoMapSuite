@@ -5,7 +5,7 @@ import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
 import { BookOpen, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Mathematical Methodology & Geodetic Precision Reference | ${SITE_CONFIG.name}`,
+  title: 'Map Calculation Methods & Geodetic Data | GeoMap Suite',
   description: 'Detailed documentation of our geodetic calculations: Karney WGS84 ellipsoidal geodesics, Haversine spherical approximations, UTM conversions, and solar ephemeris.',
   alternates: { canonical: buildCanonicalUrl('/methodology') },
 };

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { BookOpen, Compass, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 import { getAllGuides, getGuideBySlug } from '@/data/guides/guides-registry';
@@ -18,13 +18,15 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!guide) return {};
 
   const canonical = buildCanonicalUrl(`/guides/${guide.slug}`);
+  const title = buildSeoTitle(guide.title);
+  const description = buildSeoDescription(guide.description);
   return {
-    title: `${guide.title} | ${SITE_CONFIG.name}`,
-    description: guide.description,
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
-      title: `${guide.title} | ${SITE_CONFIG.name}`,
-      description: guide.description,
+      title,
+      description,
       url: canonical,
       type: 'article',
       publishedTime: guide.publishDate,

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllStates } from '@/data/states/states-registry';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { StatesDirectoryClient } from './StatesDirectoryClient';
 import {
   MapPin,
@@ -21,9 +21,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `US States & Counties Directory (50 States + DC Population, Maps & FIPS) | ${SITE_CONFIG.name}`,
+  title: buildSeoTitle('US States & Counties: Maps and FIPS Codes'),
   description:
-    'Comprehensive demographic and geographic reference for all 50 US States and the District of Columbia. Compare 3,143 counties, 2024 Census populations, land areas, FIPS codes, and printable boundary maps.',
+    buildSeoDescription('Explore interactive maps and county lists for all 50 US states and Washington, DC. Find county names, seats, populations, and FIPS codes.'),
   keywords: [
     'us states list',
     'us counties by state',
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: buildCanonicalUrl('/states'),
   },
   openGraph: {
-    title: `US States & Counties Directory (50 States + DC) | ${SITE_CONFIG.name}`,
+    title: buildSeoTitle('US States and Counties: Interactive Maps'),
     description:
-      'Complete demographic directory for all 50 US States: 3,143 counties and equivalents, FIPS identifiers, Census population benchmarks, and interactive boundary maps.',
+      'Browse US state and county maps, county lists, FIPS codes, seats, and population information.',
     url: buildCanonicalUrl('/states'),
     siteName: SITE_CONFIG.name,
     type: 'website',

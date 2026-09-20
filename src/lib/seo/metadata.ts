@@ -18,14 +18,42 @@ export function buildCanonicalUrl(path: string): string {
   return `${SITE_CONFIG.domain}${normalized}`;
 }
 
+/** Keep search titles concise while preserving the page topic and site brand. */
+export function buildSeoTitle(topic: string, maxLength = 65): string {
+  const brand = ` | ${SITE_CONFIG.name}`;
+  const cleanTopic = topic.replace(/\s+/g, ' ').trim();
+  const maxTopicLength = maxLength - brand.length;
+  if (cleanTopic.length <= maxTopicLength) return `${cleanTopic}${brand}`;
+
+  const clipped = cleanTopic.slice(0, maxTopicLength - 1);
+  const wordBoundary = clipped.lastIndexOf(' ');
+  const shortTopic = (wordBoundary > 20 ? clipped.slice(0, wordBoundary) : clipped).trim();
+  return `${shortTopic}…${brand}`;
+}
+
+/** Provide a concise, human-readable snippet; search engines may generate their own. */
+export function buildSeoDescription(description: string, maxLength = 160): string {
+  const cleanDescription = description.replace(/\s+/g, ' ').trim();
+  if (cleanDescription.length <= maxLength) return cleanDescription;
+
+  const firstSentenceEnd = cleanDescription.search(/[.!?](?:\s|$)/);
+  if (firstSentenceEnd >= 90 && firstSentenceEnd <= maxLength) {
+    return cleanDescription.slice(0, firstSentenceEnd + 1);
+  }
+
+  const clipped = cleanDescription.slice(0, maxLength - 1);
+  const wordBoundary = clipped.lastIndexOf(' ');
+  return `${(wordBoundary > 110 ? clipped.slice(0, wordBoundary) : clipped).trim()}…`;
+}
+
 const FLAGSHIP_TITLES: Record<string, string> = {
-  'map-radius': 'Map Radius Tool — Draw Radius Circle on Map (Free)',
-  'map-radius-tool': 'Map Radius Tool — Draw Radius Circle on Map (Free)',
+  'map-radius': 'Map Radius Tool: Draw Circles on a Map',
+  'map-radius-tool': 'Map Radius Tool: Draw Circles on a Map',
   'what-county-am-i-in': 'What County Am I In? — County Lookup by Address & GPS',
   'distance-between-places': 'Distance Between Places — Straight Line & Geodesic Distance',
   'distance-between-two-places': 'Distance Between Two Places — Measure Distance on Map',
   'map-area-calculator': 'Map Area Calculator — Measure Acres & Land Area on Map',
-  'drive-time-map': 'Drive Time Map — 15, 30 & 60 Min Commute Isochrones',
+  'drive-time-map': 'Drive Time Map: Approximate Travel Rings',
   'elevation-finder': 'Elevation Finder — What Is My Elevation Above Sea Level?',
   'what-is-my-elevation': 'What Is My Elevation? — Check Elevation at My Location',
   'latitude-longitude-finder': 'Latitude & Longitude Finder — GPS Coordinates on Map',
@@ -45,9 +73,11 @@ const FLAGSHIP_TITLES: Record<string, string> = {
  */
 export function generateToolMetadata(tool: ToolRegistryItem): Metadata {
   const canonical = buildCanonicalUrl(`/tools/${tool.slug}`);
-  const title = FLAGSHIP_TITLES[tool.slug]
+  const titleCore = FLAGSHIP_TITLES[tool.slug]
     ? FLAGSHIP_TITLES[tool.slug]
-    : `${tool.name} — Free Interactive Map Tool`;
+    : tool.name;
+  const title = buildSeoTitle(titleCore);
+  const description = buildSeoDescription(tool.description);
 
   const keywords = Array.from(
     new Set([
@@ -61,7 +91,7 @@ export function generateToolMetadata(tool: ToolRegistryItem): Metadata {
 
   return {
     title,
-    description: tool.description,
+    description,
     keywords,
     authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.domain }],
     alternates: {
@@ -69,7 +99,7 @@ export function generateToolMetadata(tool: ToolRegistryItem): Metadata {
     },
     openGraph: {
       title,
-      description: tool.description,
+      description,
       url: canonical,
       siteName: SITE_CONFIG.name,
       type: 'website',
@@ -78,7 +108,7 @@ export function generateToolMetadata(tool: ToolRegistryItem): Metadata {
     twitter: {
       card: 'summary_large_image',
       title,
-      description: tool.description,
+      description,
       creator: SITE_CONFIG.twitterHandle,
     },
     robots: {

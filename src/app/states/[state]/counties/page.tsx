@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllStates, getStateBySlug } from '@/data/states/states-registry';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { StateCountyDirectoryView } from '../StateCountyDirectoryView';
 
 export async function generateStaticParams() {
@@ -14,12 +14,13 @@ export async function generateMetadata(props: { params: Promise<{ state: string 
   const stateData = getStateBySlug(state);
   if (!stateData) return {};
 
-  const title = `${stateData.name} Counties - Map, List & FIPS Directory | ${SITE_CONFIG.name}`;
+  const title = buildSeoTitle(`${stateData.name} Counties: Map, List & FIPS`);
   const canonical = buildCanonicalUrl(`/states/${stateData.slug}/counties`);
+  const description = buildSeoDescription(`Explore ${stateData.name} counties with a map, complete county list, county seats, and FIPS codes. Find population and area details for each county.`);
 
   return {
     title,
-    description: `Complete guide to all ${stateData.countyCount} counties in ${stateData.name} (${stateData.postalCode}). View interactive county maps, population census benchmarks, county seats, FIPS codes, and area statistics.`,
+    description,
     keywords: [
       `${stateData.name.toLowerCase()} counties`,
       `${stateData.name.toLowerCase()} county map`,
@@ -32,7 +33,7 @@ export async function generateMetadata(props: { params: Promise<{ state: string 
     alternates: { canonical },
     openGraph: {
       title,
-      description: `Complete list and interactive map of all ${stateData.countyCount} counties in ${stateData.name}. Population data, county seats, and FIPS codes.`,
+      description,
       url: canonical,
       siteName: SITE_CONFIG.name,
       type: 'website',

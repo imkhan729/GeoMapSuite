@@ -17,11 +17,11 @@ import {
 import { getAllBlankMaps, getPopularBlankMaps } from '@/data/maps/blank-maps-registry';
 import { BlankMapsDirectoryClient } from './BlankMapsDirectoryClient';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = {
-  title: `Printable Blank Map Library (110 Free Outlines in PDF, SVG & PNG) | ${SITE_CONFIG.name}`,
-  description: 'Browse and download 110 high-resolution blank and outline maps of the World, Continents, 50 US States, and 51 Sovereign Countries. Features 4 interactive variants, vector SVG, print-ready PDF, and high-DPI PNGs.',
+  title: buildSeoTitle('Printable Blank Maps: PDF, SVG & PNG'),
+  description: buildSeoDescription('Download free printable blank maps of the world, continents, US states, and countries. Choose labeled, colored, or city versions in SVG, PDF, and PNG.'),
   keywords: [
     'blank maps',
     'printable blank maps',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     canonical: buildCanonicalUrl('/maps/blank'),
   },
   openGraph: {
-    title: `Printable Blank Map Library (110 Free Outlines) | ${SITE_CONFIG.name}`,
-    description: '110 free printable blank maps of the World, continents, 50 US states, and major nations. Vector SVG, print-ready PDF, and high-DPI PNG with public domain CC0 license.',
+    title: buildSeoTitle('Printable Blank Maps: Free World & US Outlines'),
+    description: buildSeoDescription('Browse printable blank maps of the world, continents, US states, and countries. Download outline maps in SVG, PDF, or PNG for school and study.'),
     url: buildCanonicalUrl('/maps/blank'),
     type: 'website',
   },

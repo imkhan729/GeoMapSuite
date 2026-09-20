@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.domain),
   title: {
-    default: `${SITE_CONFIG.name} — High-Precision Geographic & Cartographic Tools`,
-    template: `%s | ${SITE_CONFIG.name}`,
+    default: `${SITE_CONFIG.name} — Free Map Tools & Blank Maps`,
+    template: '%s',
   },
   description: SITE_CONFIG.description,
   applicationName: SITE_CONFIG.name,

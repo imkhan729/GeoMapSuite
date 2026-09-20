@@ -27,7 +27,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { getAllBlogPosts, getBlogPost, BlogPost, BlogSection } from '@/data/blog/posts';
 import { DownloadDatasetButton } from '@/components/blog/DownloadDatasetButton';
 import { BlogFaqAccordion } from '@/components/blog/BlogFaqAccordion';
@@ -44,13 +44,15 @@ export async function generateMetadata(props: {
   if (!post) return {};
 
   const canonical = buildCanonicalUrl(`/blog/${post.slug}`);
+  const title = buildSeoTitle(post.seoTitle);
+  const description = buildSeoDescription(post.metaDescription);
   return {
-    title: `${post.seoTitle} | ${SITE_CONFIG.name}`,
-    description: post.metaDescription,
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
-      title: `${post.seoTitle} | ${SITE_CONFIG.name}`,
-      description: post.metaDescription,
+      title,
+      description,
       url: canonical,
       type: 'article',
       publishedTime: post.publishedAt,
@@ -60,8 +62,8 @@ export async function generateMetadata(props: {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${post.seoTitle} | ${SITE_CONFIG.name}`,
-      description: post.metaDescription,
+      title,
+      description,
     },
   };
 }

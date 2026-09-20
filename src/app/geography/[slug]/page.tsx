@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { Globe2, Compass, CheckCircle2 } from 'lucide-react';
 import { GeographyMapView } from '@/features/tools/geography/GeographyMapView';
 import { GEOGRAPHY_LINES } from '@/data/tools/geography-lines';
@@ -17,9 +17,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!line) return {};
 
   const canonical = buildCanonicalUrl(`/geography/${line.slug}`);
+  const title = buildSeoTitle(`${line.title} Map & Geographic Facts`);
+  const description = buildSeoDescription(line.directAnswer);
   return {
-    title: `${line.title} — Interactive Map, Coordinates & Countries Traversed | ${SITE_CONFIG.name}`,
-    description: line.directAnswer,
+    title,
+    description,
     keywords: [
       `${line.title.toLowerCase()}`,
       `${line.title.toLowerCase()} map`,
@@ -31,8 +33,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     ],
     alternates: { canonical },
     openGraph: {
-      title: `${line.title} Map & Facts | ${SITE_CONFIG.name}`,
-      description: line.directAnswer,
+      title,
+      description,
       url: canonical,
       siteName: SITE_CONFIG.name,
       type: 'website',

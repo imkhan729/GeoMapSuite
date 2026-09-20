@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { Ruler, Compass, FileCode, MapPin, Sun, ArrowRight, BookOpen, Layers, CheckCircle2 } from 'lucide-react';
 
 interface PillarData {
@@ -181,9 +181,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!pillar) return {};
 
   const canonical = buildCanonicalUrl(`/learn/${pillar.slug}`);
+  const title = buildSeoTitle(`${pillar.title} Guide`);
+  const description = buildSeoDescription(pillar.subtitle);
   return {
-    title: `${pillar.title} | ${SITE_CONFIG.name} Knowledge Hub`,
-    description: pillar.subtitle,
+    title,
+    description,
     alternates: { canonical },
   };
 }

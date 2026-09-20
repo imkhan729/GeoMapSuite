@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { BookOpen, Compass, ArrowRight } from 'lucide-react';
 
 import { getAllGlossaryTerms, getGlossaryTermBySlug } from '@/data/glossary/glossary-registry';
@@ -18,13 +18,15 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!term) return {};
 
   const canonical = buildCanonicalUrl(`/glossary/${term.slug}`);
+  const title = buildSeoTitle(`${term.term}: Definition`);
+  const description = buildSeoDescription(term.directAnswer);
   return {
-    title: `${term.term}: Definition & Geodetic Formula | ${SITE_CONFIG.name}`,
-    description: term.directAnswer,
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
-      title: `${term.term}: Definition & Geodetic Formula | ${SITE_CONFIG.name}`,
-      description: term.directAnswer,
+      title,
+      description,
       url: canonical,
       type: 'article',
     },

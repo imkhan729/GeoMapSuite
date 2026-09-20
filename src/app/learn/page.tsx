@@ -2,12 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 import { Compass, Ruler, Globe2, FileCode, MapPin, Sun, ArrowRight, BookOpen, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Cartography, Geodesy & GIS Knowledge Hub | ${SITE_CONFIG.name}`,
-  description: 'Authoritative educational guides, mathematical methodologies, and reference hubs for coordinate systems, geodetic measurement, GIS file formats, and spatial analysis.',
+  title: buildSeoTitle('Map, GIS and Geodesy Learning Guides'),
+  description: buildSeoDescription('Learn about map measurements, GPS coordinates, GIS file formats, geographic boundaries, elevation, and geodesy with practical guides.'),
   alternates: { canonical: buildCanonicalUrl('/learn') },
 };
 

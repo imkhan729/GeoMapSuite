@@ -34,9 +34,9 @@ import { HomeFaqAccordion } from '@/components/home/HomeFaqAccordion';
 import { HomeToolDirectory } from '@/components/home/HomeToolDirectory';
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} — Free Interactive Map Tools & Printable Blank Maps`,
+  title: 'Free Map Tools & Printable Blank Maps | GeoMap Suite',
   description:
-    '68 free interactive map tools and 110 printable blank maps. Drive time isochrones, map radius tool, distance calculator, what county am I in, elevation finder, latitude longitude converter, and US county maps. 100% free, browser-executed, no sign-up.',
+    'Use free online map tools to draw radius circles, measure distance and land area, convert GPS coordinates, find elevation, and download printable blank maps.',
   keywords: [
     'free interactive map tools',
     'printable blank maps',
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     canonical: buildCanonicalUrl('/'),
   },
   openGraph: {
-    title: `${SITE_CONFIG.name} — Free Map Tools & Printable Blank Maps`,
+    title: 'Free Map Tools & Printable Blank Maps | GeoMap Suite',
     description:
-      '68 free interactive map tools and 110 printable blank maps. Drive time radius, distance calculator, what county am I in, elevation lookup, and vector blank maps. 100% free with open data.',
+      'Draw a map radius, measure distance and area, convert coordinates, find locations, and download free printable blank maps.',
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.name,
     type: 'website',

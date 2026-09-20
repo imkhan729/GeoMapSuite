@@ -8,14 +8,14 @@ import { BlogHubView } from '@/components/blog/BlogHubView';
 import { BlogFaqAccordion } from '@/components/blog/BlogFaqAccordion';
 
 export const metadata: Metadata = {
-  title: `Geospatial & Cartography Blog | Guides, Formulas & Spatial Studies | ${SITE_CONFIG.name}`,
+  title: 'Map & Geospatial Guides, Tutorials and Studies | GeoMap Suite',
   description:
-    'In-depth cartography and geospatial analysis guides. Learn how to draw a radius on Google Maps, calculate driving distance, find elevation, look up US counties, and plot CSVs.',
+    'Read practical guides to map radius circles, GPS coordinates, distance calculations, elevation, US counties, and plotting spreadsheet data on a map.',
   alternates: { canonical: buildCanonicalUrl('/blog') },
   openGraph: {
-    title: `Geospatial & Cartography Blog | ${SITE_CONFIG.name}`,
+    title: 'Map & Geospatial Guides, Tutorials and Studies | GeoMap Suite',
     description:
-      'In-depth cartography and geospatial analysis guides, empirical detour studies, and computational geodesy tutorials.',
+      'Explore map tutorials, coordinate and distance explainers, and geospatial studies for practical mapping tasks.',
     url: buildCanonicalUrl('/blog'),
     type: 'website',
   },

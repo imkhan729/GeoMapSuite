@@ -5,7 +5,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import { getAllBlankMaps, getBlankMapBySlug } from '@/data/maps/blank-maps-registry';
 import { BlankMapViewer } from '@/features/maps/BlankMapViewer';
 import { MapFaqAccordion } from '@/components/maps/MapFaqAccordion';
-import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
+import { buildCanonicalUrl, buildSeoDescription, buildSeoTitle, SITE_CONFIG } from '@/lib/seo/metadata';
 
 export async function generateStaticParams() {
   return getAllBlankMaps().map((m) => ({ slug: m.slug }));
@@ -16,12 +16,13 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const mapItem = getBlankMapBySlug(slug);
   if (!mapItem) return {};
 
-  const title = `Blank Map of ${mapItem.name}: ${mapItem.adminUnitsCount} ${mapItem.adminUnitsName} (SVG, PNG, PDF) | ${SITE_CONFIG.name}`;
+  const title = buildSeoTitle(`Blank ${mapItem.name} Map: Printable Outline`);
+  const description = buildSeoDescription(`Download a free printable blank map of ${mapItem.name}. Choose blank, labeled, colored, or city versions in SVG, PNG, or PDF for lessons, study, and printing.`);
   const canonical = buildCanonicalUrl(`/maps/blank/${mapItem.slug}`);
 
   return {
     title,
-    description: `Free printable blank map of ${mapItem.name} — all ${mapItem.adminUnitsCount} ${mapItem.adminUnitsName.toLowerCase()}. Four variants: blank, labeled, colored, and with cities. SVG, PNG, and PDF downloads. Public domain.`,
+    description,
     keywords: [
       `blank ${mapItem.name.toLowerCase()} map`,
       `printable ${mapItem.name.toLowerCase()} map`,
@@ -33,7 +34,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     alternates: { canonical },
     openGraph: {
       title,
-      description: `Free printable blank map of ${mapItem.name} — all ${mapItem.adminUnitsCount} ${mapItem.adminUnitsName.toLowerCase()}. SVG, PNG, and PDF downloads. Public domain.`,
+      description,
       url: canonical,
       type: 'website',
       images: [

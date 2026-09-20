@@ -5,7 +5,7 @@ import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
 import { Compass, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `About GeoMap Suite — Open Cartography & Geospatial Tools | ${SITE_CONFIG.name}`,
+  title: 'About GeoMap Suite: Our Mapping Tools',
   description: 'Learn about the mission, engineering principles, and cartographic philosophy behind GeoMap Suite.',
   alternates: { canonical: buildCanonicalUrl('/about') },
 };
