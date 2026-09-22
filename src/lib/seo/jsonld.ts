@@ -16,6 +16,12 @@ export function generateSiteJsonLd() {
         'logo': {
           '@type': 'ImageObject',
           'url': `${SITE_CONFIG.domain}/logo.png`,
+          'creator': {
+            '@type': 'Organization',
+            'name': SITE_CONFIG.name,
+            'url': SITE_CONFIG.domain,
+          },
+          'copyrightNotice': `${SITE_CONFIG.name} logo`,
         },
         'sameAs': [],
       },

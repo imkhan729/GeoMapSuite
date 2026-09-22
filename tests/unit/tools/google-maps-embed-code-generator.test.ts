@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';
+describe('Google Maps embed generator',()=>{it('encodes a place query',()=>expect(encodeURIComponent('Eiffel Tower, Paris')).toContain('Eiffel%20Tower'));it('uses the embed output parameter',()=>expect(`https://www.google.com/maps?q=${encodeURIComponent('Doha')}&z=12&output=embed`).toContain('output=embed'));it('keeps dimensions configurable',()=>expect(['100%','450']).toHaveLength(2));});

@@ -96,6 +96,38 @@ export default async function GlossaryDetailPage(props: { params: Promise<{ slug
           )}
         </section>
 
+        {term.searchIntent && (
+          <section className="rounded-2xl border border-brand-100 bg-brand-50/40 p-5 space-y-2">
+            <h2 className="text-base font-bold text-navy-900">What people search for</h2>
+            <p>{term.searchIntent}</p>
+          </section>
+        )}
+
+        {term.commonUses && term.commonUses.length > 0 && (
+          <section className="space-y-2">
+            <h2 className="text-base font-bold text-navy-900">Common uses</h2>
+            <ul className="list-disc pl-5 space-y-1">
+              {term.commonUses.map((use) => <li key={use}>{use}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {term.example && (
+          <section className="space-y-2">
+            <h2 className="text-base font-bold text-navy-900">Example</h2>
+            <p>{term.example}</p>
+          </section>
+        )}
+
+        {term.commonMistakes && term.commonMistakes.length > 0 && (
+          <section className="space-y-2">
+            <h2 className="text-base font-bold text-navy-900">Common mistakes to avoid</h2>
+            <ul className="list-disc pl-5 space-y-1">
+              {term.commonMistakes.map((mistake) => <li key={mistake}>{mistake}</li>)}
+            </ul>
+          </section>
+        )}
+
         {term.relatedToolSlug && (
           <div className="rounded-2xl border border-brand-200 bg-brand-50/60 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>

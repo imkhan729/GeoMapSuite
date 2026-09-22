@@ -8,9 +8,23 @@ export interface GlossaryItem {
   relatedToolSlug?: string;
   relatedToolName?: string;
   relatedTerms?: { slug: string; term: string }[];
+  searchIntent?: string;
+  commonUses?: string[];
+  example?: string;
+  commonMistakes?: string[];
 }
 
 export const GLOSSARY_REGISTRY: Record<string, GlossaryItem> = {
+  'kmz': {
+    slug: 'kmz', term: 'KMZ Archive', category: 'GIS & Formats',
+    directAnswer: 'KMZ is a ZIP archive that contains a main KML document and may bundle related images, icons, sound files, or 3D models for Google Earth.',
+    technicalDetails: 'A KMZ commonly contains doc.kml at its root. ZIP packaging reduces transfer size and keeps referenced local assets together, while remote NetworkLinks remain external. Extracting the KML does not automatically extract or rewrite every asset reference.',
+    searchIntent: 'what is KMZ, KMZ vs KML, open KMZ, convert KMZ to KML',
+    commonUses: ['Sharing Google Earth projects with bundled icons and overlays', 'Compressing text-heavy KML for download', 'Packaging map layers and local assets together'],
+    example: 'A route.kmz package may contain doc.kml plus an icons folder. The original KMZ keeps the complete project together.',
+    commonMistakes: ['Renaming an invalid ZIP to .kmz', 'Deleting bundled icons and expecting overlays to keep working', 'Assuming remote NetworkLinks become local assets'],
+    relatedToolSlug: 'kmz-to-kml', relatedToolName: 'KMZ to KML Converter', relatedTerms: [{ slug: 'kml', term: 'Keyhole Markup Language (KML)' }, { slug: 'geojson', term: 'GeoJSON' }],
+  },
   'geodesic-distance': {
     slug: 'geodesic-distance',
     term: 'Geodesic Distance',
@@ -390,6 +404,10 @@ export const GLOSSARY_REGISTRY: Record<string, GlossaryItem> = {
     directAnswer: 'GeoJSON is an open standard geospatial data format based on JSON, standardized under IETF RFC 7946, designed for encoding simple geographic features and their non-spatial attributes.',
     technicalDetails: 'RFC 7946 strictly requires coordinate positions to be formatted in order [longitude, latitude, elevation] referenced to WGS84 (EPSG:4326), with polygon outer rings following a counter-clockwise winding order and interior holes following clockwise.',
     formula: '{\\text{"type": "Feature", "geometry": { "type": "Point", "coordinates": [-122.4194, 37.7749] }}}',
+    searchIntent: 'what is GeoJSON, GeoJSON format, GeoJSON coordinates, GeoJSON vs KML',
+    commonUses: ['Interactive web maps and JavaScript mapping libraries', 'APIs and lightweight geospatial data exchange', 'Storing feature properties beside geometry'],
+    example: 'A Point uses [longitude, latitude] coordinates, such as [-73.9857, 40.7484].',
+    commonMistakes: ['Writing latitude before longitude', 'Using a non-WGS84 CRS in RFC 7946 data', 'Forgetting to close polygon rings'],
     relatedToolSlug: 'geojson-validator',
     relatedToolName: 'GeoJSON Validator',
     relatedTerms: [
@@ -404,6 +422,10 @@ export const GLOSSARY_REGISTRY: Record<string, GlossaryItem> = {
     category: 'GIS & Formats',
     directAnswer: 'A Shapefile is a vector GIS storage format created by ESRI in the early 1990s, composed of at least three mandatory files: .shp (geometry), .shx (spatial index), and .dbf (dBASE attribute table).',
     technicalDetails: 'Shapefiles have architectural limitations including a 2GB maximum file size, attribute field name length limited to 10 characters, lack of NULL values in dBASE, and non-enforced coordinate reference systems unless a .prj file is included.',
+    searchIntent: 'what is a shapefile, shapefile components, SHP SHX DBF, shapefile vs GeoJSON',
+    commonUses: ['Legacy GIS exchange and desktop mapping software', 'County, parcel, road, and boundary datasets', 'Attribute-table workflows in QGIS and ArcGIS'],
+    example: 'A usable shapefile normally travels as roads.shp, roads.shx, roads.dbf, and roads.prj.',
+    commonMistakes: ['Uploading only .shp and forgetting .shx or .dbf', 'Omitting .prj when coordinates need correct placement', 'Using field names longer than the format allows'],
     relatedToolSlug: 'shapefile-viewer',
     relatedToolName: 'Shapefile Viewer',
     relatedTerms: [
@@ -418,11 +440,16 @@ export const GLOSSARY_REGISTRY: Record<string, GlossaryItem> = {
     category: 'GIS & Formats',
     directAnswer: 'KML is an XML-based geospatial notation language created for Keyhole (now Google Earth) and maintained by the Open Geospatial Consortium (OGC) to express geographic annotation, 3D building models, and camera perspectives.',
     technicalDetails: 'Coordinates in KML are formatted as longitude,latitude,altitude in comma-separated strings. A .kmz file is a standard ZIP archive containing a doc.kml file along with bundled raster icon overlays and texture assets.',
+    searchIntent: 'what is KML, KML file format, open KML, KML vs KMZ, KML coordinates',
+    commonUses: ['Google Earth and Google My Maps layers', 'Sharing points, routes, boundaries, and 3D annotations', 'Moving simple geographic features between mapping applications'],
+    example: 'A KML Point uses longitude,latitude,altitude, for example -73.9857,40.7484,0—not latitude first.',
+    commonMistakes: ['Swapping longitude and latitude', 'Saving malformed XML or omitting the KML namespace', 'Expecting plain KML to carry KMZ images and icons'],
     relatedToolSlug: 'gis-format-converter',
     relatedToolName: 'GIS Format Converter',
     relatedTerms: [
       { slug: 'geojson', term: 'GeoJSON Standard' },
       { slug: 'gpx', term: 'GPX Track Format' },
+      { slug: 'kmz', term: 'KMZ Archive' },
     ],
   },
 
@@ -432,6 +459,10 @@ export const GLOSSARY_REGISTRY: Record<string, GlossaryItem> = {
     category: 'GIS & Formats',
     directAnswer: 'GPX is an open XML schema designed specifically for transferring GPS data between navigation hardware (Garmin, Wahoo), fitness apps (Strava), and cartography software.',
     technicalDetails: 'GPX structures data into three distinct XML element types: <wpt> (individual waypoints), <rte> (ordered list of route guideposts), and <trk> with <trkpt> (timestamped, elevation-tagged recorded track breadcrumbs).',
+    searchIntent: 'what is GPX, GPX file format, GPX vs KML, open GPX, GPS route file',
+    commonUses: ['Importing hiking, cycling, and running tracks into GPS apps', 'Sharing waypoints and routes between navigation devices', 'Storing recorded track points with timestamps and elevation'],
+    example: 'A GPX track stores ordered trkpt elements, while a waypoint uses wpt and a planned route uses rte.',
+    commonMistakes: ['Expecting GPX to preserve KML folders, fills, tours, or icons', 'Treating a route and recorded track as interchangeable', 'Removing timestamps or elevation needed by a fitness app'],
     relatedToolSlug: 'gis-format-converter',
     relatedToolName: 'GIS Format Converter',
     relatedTerms: [

@@ -13,21 +13,55 @@ import { RelatedTools } from '@/components/tools/RelatedTools';
 import { getToolContent, ALIAS_MAP } from '@/data/tools/content-registry';
 import { GEOGRAPHY_LINES } from '@/data/tools/geography-lines';
 import { GeographyMapView } from '@/features/tools/geography/GeographyMapView';
+import { EquatorMapView } from '@/features/tools/geography/EquatorMapView';
+import { TropicOfCancerMapView } from '@/features/tools/geography/TropicOfCancerMapView';
+import { TropicOfCapricornMapView } from '@/features/tools/geography/TropicOfCapricornMapView';
+import { ArcticCircleMapView } from '@/features/tools/geography/ArcticCircleMapView';
+import { AntarcticCircleMapView } from '@/features/tools/geography/AntarcticCircleMapView';
+import { PrimeMeridianMapView } from '@/features/tools/geography/PrimeMeridianMapView';
+import { InternationalDateLineMapView } from '@/features/tools/geography/InternationalDateLineMapView';
+import { GoogleMapsEmbedGeneratorView } from '@/features/tools/cartography/GoogleMapsEmbedGeneratorView';
+import { MapWithLegendMakerView } from '@/features/tools/cartography/MapWithLegendMakerView';
+import { UsTimeZoneMapView } from '@/features/tools/reference/UsTimeZoneMapView';
+import { WorldTimeZoneMapView } from '@/features/tools/reference/WorldTimeZoneMapView';
 
 // Dedicated Tool Interactive Feature Components
 import { MapRadiusView } from '@/features/tools/radius/MapRadiusView';
 import { MapAreaView } from '@/features/tools/area/MapAreaView';
 import { DistanceBetweenPlacesView } from '@/features/tools/distance/DistanceBetweenPlacesView';
+import { DistanceBetweenZipCodesView } from '@/features/tools/distance/DistanceBetweenZipCodesView';
+import { DistanceBetweenCitiesView } from '@/features/tools/distance/DistanceBetweenCitiesView';
+import { MultiStopRouteDistanceView } from '@/features/tools/distance/MultiStopRouteDistanceView';
+import { DistanceMatrixView } from '@/features/tools/distance/DistanceMatrixView';
+import { HorizonDistanceView } from '@/features/tools/distance/HorizonDistanceView';
 import { LatLongFinderView } from '@/features/tools/coordinates/LatLongFinderView';
 import { AddressToCoordinatesView } from '@/features/tools/coordinates/AddressToCoordinatesView';
 import { CoordinatesToAddressView } from '@/features/tools/coordinates/CoordinatesToAddressView';
+import { CoordinatesToCityView } from '@/features/tools/coordinates/CoordinatesToCityView';
+import { CoordinatesToCountryView } from '@/features/tools/coordinates/CoordinatesToCountryView';
+import { CoordinatesToStateView } from '@/features/tools/coordinates/CoordinatesToStateView';
 import { CoordinateConverterView } from '@/features/tools/coordinates/CoordinateConverterView';
 import { ElevationFinderView } from '@/features/tools/elevation/ElevationFinderView';
 import { DriveTimeMapView } from '@/features/tools/isochrone/DriveTimeMapView';
 import { PinDropMapView } from '@/features/tools/cartography/PinDropMapView';
 import { CsvToMapView } from '@/features/tools/data/CsvToMapView';
+import { FindZipCodesInRadiusView } from '@/features/tools/data/FindZipCodesInRadiusView';
+import { FindCitiesInRadiusView } from '@/features/tools/data/FindCitiesInRadiusView';
+import { PopulationWithinRadiusView } from '@/features/tools/data/PopulationWithinRadiusView';
+import { CountyMapWithCitiesView } from '@/features/tools/data/CountyMapWithCitiesView';
+import { FindNearestNationalParkView } from '@/features/tools/data/FindNearestNationalParkView';
 import { MapDrawerView } from '@/features/tools/cartography/MapDrawerView';
+import { ColorAMapView } from '@/features/tools/cartography/ColorAMapView';
+import { CountrySizeComparisonView } from '@/features/tools/cartography/CountrySizeComparisonView';
+import { MapWithCountiesView } from '@/features/tools/cartography/MapWithCountiesView';
+import { MapWithZipCodesView } from '@/features/tools/cartography/MapWithZipCodesView';
+import { UsCountyMapInteractiveView } from '@/features/tools/cartography/UsCountyMapInteractiveView';
 import { KmlViewerView } from '@/features/tools/gis/KmlViewerView';
+import { KmlEditorView } from '@/features/tools/gis/KmlEditorView';
+import { KmlValidatorView } from '@/features/tools/gis/KmlValidatorView';
+import { KmlToKmzView } from '@/features/tools/gis/KmlToKmzView';
+import { KmzToKmlView } from '@/features/tools/gis/KmzToKmlView';
+import { KmlToolsHubView } from '@/features/tools/gis/KmlToolsHubView';
 import { GpxViewerView } from '@/features/tools/gis/GpxViewerView';
 import { GeoJsonViewerView } from '@/features/tools/gis/GeoJsonViewerView';
 import { BearingCalculatorView } from '@/features/tools/geodesic/BearingCalculatorView';
@@ -56,6 +90,9 @@ import { MoonPhaseView } from '@/features/tools/reference/MoonPhaseView';
 import { AntipodeFinderView } from '@/features/tools/coordinates/AntipodeFinderView';
 import { RandomLocationView } from '@/features/tools/coordinates/RandomLocationView';
 import { GeographicCenterView } from '@/features/tools/coordinates/GeographicCenterView';
+import { TimeZoneFinderView } from '@/features/tools/reference/TimeZoneFinderView';
+import { TimeDifferenceCalculatorView } from '@/features/tools/reference/TimeDifferenceCalculatorView';
+import { MoonPositionMapView } from '@/features/tools/reference/MoonPositionMapView';
 
 export async function generateStaticParams() {
   return getAllTools()
@@ -136,18 +173,18 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
           <span className="text-[#d4d1c9]">·</span>
           <div className="inline-flex items-center gap-1.5 text-[#54524b]">
             <ShieldCheck className="h-3.5 w-3.5 text-[#2a6e4e]" />
-            <span>Zero Sign-Up &amp; Client-Side Privacy</span>
+          <span>{['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? 'No account or API key required' : 'Zero Sign-Up &amp; Client-Side Privacy'}</span>
           </div>
           <span className="text-[#d4d1c9]">·</span>
           <div className="inline-flex items-center gap-1.5 text-[#54524b]">
             <Globe2 className="h-3.5 w-3.5 text-[#2a6e4e]" />
-            <span>WGS84 Ellipsoidal Geodesics</span>
+          <span>{tool.slug === 'equator' ? 'Interactive 0° latitude reference' : ['tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? 'Interactive latitude-line map' : 'WGS84 Ellipsoidal Geodesics'}</span>
           </div>
         </div>
 
         {/* H1 Main Heading: High-Intent SERP Keywords */}
         <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-semibold tracking-tight text-[#1a1a18] leading-[1.2]">
-          {tool.name}
+          {tool.slug === 'equator' ? 'Interactive Equator Map at 0° Latitude' : tool.slug === 'tropic-of-cancer' ? 'Interactive Tropic of Cancer Map' : tool.slug === 'tropic-of-capricorn' ? 'Interactive Tropic of Capricorn Map' : tool.slug === 'arctic-circle' ? 'Interactive Arctic Circle Map' : tool.slug === 'antarctic-circle' ? 'Interactive Antarctic Circle Map at 66.56° S' : tool.name}
         </h1>
 
         {/* Subtitle */}
@@ -181,7 +218,7 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
           {content.examples.length > 0 && (
             <a href="#examples" className="px-3 py-1.5 rounded-lg bg-[#fcfbf9] hover:bg-[#f7f6f2] text-[#54524b] hover:text-[#1a1a18] border border-[#e8e6e1] transition-colors">Worked Examples</a>
           )}
-          <a href="#accuracy" className="px-3 py-1.5 rounded-lg bg-[#fcfbf9] hover:bg-[#f7f6f2] text-[#54524b] hover:text-[#1a1a18] border border-[#e8e6e1] transition-colors">Accuracy Benchmark</a>
+          <a href="#accuracy" className="px-3 py-1.5 rounded-lg bg-[#fcfbf9] hover:bg-[#f7f6f2] text-[#54524b] hover:text-[#1a1a18] border border-[#e8e6e1] transition-colors">{['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? 'Reference accuracy' : 'Accuracy Benchmark'}</a>
           {content.resultExplanation.length > 0 && (
             <a href="#results" className="px-3 py-1.5 rounded-lg bg-[#fcfbf9] hover:bg-[#f7f6f2] text-[#54524b] hover:text-[#1a1a18] border border-[#e8e6e1] transition-colors">Understanding Results</a>
           )}
@@ -199,10 +236,18 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
       <section id="specs" className="rounded-2xl border border-[#e8e6e1] bg-[#fcfbf9] p-6 sm:p-8 space-y-4 scroll-mt-20">
         <div className="flex items-center justify-between border-b border-[#e8e6e1] pb-3">
           <h2 className="font-serif text-lg sm:text-xl font-semibold text-[#1a1a18]">
-            {tool.shortName} Technical Specifications &amp; Standards
+            {tool.slug === 'equator' ? 'Equator Map: Reference Details' : tool.slug === 'tropic-of-cancer' ? 'Tropic of Cancer Map: Reference Details' : tool.slug === 'tropic-of-capricorn' ? 'Tropic of Capricorn Map: Reference Details' : tool.slug === 'arctic-circle' ? 'Arctic Circle Map: Reference Details' : tool.slug === 'antarctic-circle' ? 'Antarctic Circle Map: Reference Details' : `${tool.shortName} Technical Specifications & Standards`}
           </h2>
-          <span className="text-xs text-[#737067] font-medium hidden sm:inline">Reference ISO / OGC Standard</span>
+          <span className="text-xs text-[#737067] font-medium hidden sm:inline">{['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? 'Geographic reference' : 'Reference ISO / OGC Standard'}</span>
         </div>
+        {['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+          <SpecCard label="Map reference latitude" value={tool.slug === 'equator' ? '0°' : tool.slug === 'tropic-of-capricorn' ? '23.4364° S (approx.)' : tool.slug === 'arctic-circle' ? '66.5636° N (approx.)' : tool.slug === 'antarctic-circle' ? '66.5636° S (approx.)' : '23.4364° N (approx.)'} detail={tool.slug === 'equator' ? 'The Equator is the zero-degree parallel.' : 'A documented static cartographic reference; the astronomical line varies.'} />
+          <SpecCard label="Longitude range" value="180° W to 180° E" detail="Select a longitude with the input, slider, shortcuts, or map." />
+          <SpecCard label={tool.slug === 'equator' ? 'Reference circumference' : 'WGS 84 parallel length'} value={tool.slug === 'equator' ? '≈ 40,075.017 km' : ['arctic-circle', 'antarctic-circle'].includes(tool.slug) ? '≈ 15,984.2 km' : '≈ 36,788.4 km'} detail={tool.slug === 'equator' ? 'WGS 84 ellipsoid value derived using C = 2πa.' : 'Ellipsoid parallel-length calculation, not a route distance.'} />
+          <SpecCard label="Map and data" value="OpenStreetMap tiles" detail="Map tiles need an internet connection; attribution appears below the map." />
+        </div>
+        ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
           <div className="rounded-xl border border-[#e8e6e1] bg-white p-5 space-y-1.5 shadow-2xs">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#737067] block">Geodetic Datum</span>
@@ -225,6 +270,7 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
             <p className="text-xs text-[#737067]">Calculations run in-browser. Zero coordinate logging.</p>
           </div>
         </div>
+        )}
       </section>
 
       {/* Server-Rendered Usage Procedure */}
@@ -234,7 +280,7 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
             How to Use the {tool.name}
           </h2>
           <p className="text-xs sm:text-sm text-[#737067] mt-1">
-            Follow this step-by-step procedure to execute precise spatial measurements and export results.
+            {['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? `Use this free ${tool.name} map to explore longitude, coordinates, and the reference latitude line.` : 'Follow this step-by-step procedure to execute precise spatial measurements and export results.'}
           </p>
         </div>
 
@@ -254,6 +300,18 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
       </section>
 
       {/* Competitor Benchmark & Geodesic Accuracy Comparison Table */}
+      {['equator', 'tropic-of-cancer', 'tropic-of-capricorn', 'arctic-circle', 'antarctic-circle'].includes(tool.slug) ? (
+      <section id="accuracy" className="rounded-2xl border border-[#e8e6e1] bg-white p-6 sm:p-8 space-y-3 scroll-mt-20 shadow-xs">
+        <div className="flex items-center gap-2 text-xs font-bold text-[#2a6e4e] uppercase tracking-wider">
+          <ShieldCheck className="h-4 w-4" />
+          <span>{tool.slug === 'equator' ? 'Equator reference and map accuracy' : tool.slug === 'tropic-of-cancer' ? 'Tropic of Cancer reference and map accuracy' : tool.slug === 'tropic-of-capricorn' ? 'Tropic of Capricorn reference and map accuracy' : tool.slug === 'arctic-circle' ? 'Arctic Circle reference and map accuracy' : 'Antarctic Circle reference and map accuracy'}</span>
+        </div>
+        <h2 className="text-lg sm:text-xl font-serif font-semibold text-[#1a1a18]">{tool.slug === 'equator' ? 'A map reference for 0° latitude' : tool.slug === 'tropic-of-cancer' ? 'An approximate reference for the northern tropic' : tool.slug === 'tropic-of-capricorn' ? 'An approximate reference for the southern tropic' : tool.slug === 'arctic-circle' ? 'An approximate Arctic Circle reference' : 'An approximate Antarctic Circle reference'}</h2>
+        <p className="text-sm text-[#54524b] leading-relaxed">
+          {tool.slug === 'equator' ? 'The Equator is the zero-degree parallel: every point on the line has latitude 0°. The circumference shown here is derived from the WGS 84 ellipsoid semi-major axis (a = 6,378,137 m) using C = 2πa, then rounded to 0.001 km.' : tool.slug === 'tropic-of-cancer' ? 'This map uses 23.4364° N as a fixed cartographic reference for the Tropic of Cancer. The astronomical tropic follows changes in Earth’s axial tilt, so this is not a date-specific solar calculation. Its WGS 84 parallel length is a model-derived reference, not a ground-route measurement.' : tool.slug === 'tropic-of-capricorn' ? 'This map uses 23.4364° S as a fixed cartographic reference for the Tropic of Capricorn. The astronomical tropic follows changes in Earth’s axial tilt, so this is not a date-specific solar calculation. Its WGS 84 parallel length is a model-derived reference, not a ground-route measurement.' : tool.slug === 'arctic-circle' ? 'This map uses 66.5636° N as a fixed cartographic reference for the Arctic Circle. Its astronomical latitude follows changes in Earth’s axial tilt, so this is not an epoch-specific polar-circle calculation. The WGS 84 parallel length is a model-derived reference, not a ground-route measurement.' : 'This map uses 66.5636° S as a fixed cartographic reference for the Antarctic Circle. Its astronomical latitude follows changes in Earth’s axial tilt, so this is not an epoch-specific polar-circle calculation. The WGS 84 parallel length is a model-derived reference, not a ground-route measurement. The Antarctic Treaty area begins farther north at 60° S and is not the circle shown here.'} The displayed line and basemap are for geographic reference, not surveying or legal boundary work.
+        </p>
+      </section>
+      ) : (
       <section id="accuracy" className="rounded-2xl border border-[#e8e6e1] bg-white p-6 sm:p-8 space-y-5 scroll-mt-20 shadow-xs">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold text-[#2a6e4e] uppercase tracking-wider mb-1">
@@ -310,6 +368,7 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
           </table>
         </div>
       </section>
+      )}
 
       {/* Worked Mathematical Examples */}
       {content.examples.length > 0 && (
@@ -387,7 +446,7 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
       {/* Editorial Attribution & Review Metadata */}
       <div className="rounded-xl border border-[#e8e6e1] bg-[#fcfbf9] p-4 flex flex-col sm:flex-row items-center justify-between text-xs text-[#737067] gap-2">
         <span>Reviewed by: <strong className="text-[#1a1a18]">{content.reviewer.name}</strong> ({content.reviewer.role})</span>
-        <span>Last Reviewed: {content.reviewedAt} • Revision {content.contentHash} • E-E-A-T Certified</span>
+        <span>Last Reviewed: {content.reviewedAt} • Revision {content.contentHash}</span>
       </div>
 
       {/* Related Tools Internal Links */}
@@ -398,7 +457,29 @@ export default async function ToolPage(props: { params: Promise<{ slug: string }
   );
 }
 
+function SpecCard({ label, value, detail }: { label: string; value: string; detail: string }) {
+  return (
+    <div className="rounded-xl border border-[#e8e6e1] bg-white p-5 space-y-1.5 shadow-2xs">
+      <span className="text-[11px] font-bold uppercase tracking-wider text-[#737067] block">{label}</span>
+      <p className="text-sm font-semibold text-[#1a1a18]">{value}</p>
+      <p className="text-xs text-[#737067]">{detail}</p>
+    </div>
+  );
+}
+
 function renderToolComponent(slug: string) {
+  if (slug === 'equator') return <EquatorMapView />;
+  if (slug === 'tropic-of-cancer') return <TropicOfCancerMapView />;
+  if (slug === 'tropic-of-capricorn') return <TropicOfCapricornMapView />;
+  if (slug === 'arctic-circle') return <ArcticCircleMapView />;
+  if (slug === 'antarctic-circle') return <AntarcticCircleMapView />;
+  if (slug === 'prime-meridian') return <PrimeMeridianMapView />;
+  if (slug === 'international-date-line') return <InternationalDateLineMapView />;
+  if (slug === 'google-maps-embed-code-generator') return <GoogleMapsEmbedGeneratorView />;
+  if (slug === 'map-with-legend-maker') return <MapWithLegendMakerView />;
+  if (slug === 'us-time-zone-map') return <UsTimeZoneMapView />;
+  if (slug === 'world-time-zone-map') return <WorldTimeZoneMapView />;
+
   // Check geographic lines first
   if (GEOGRAPHY_LINES[slug]) {
     return (
@@ -421,13 +502,18 @@ function renderToolComponent(slug: string) {
     case 'distance-between-places':
     case 'distance-between-two-places':
     case 'crow-flies-distance':
-    case 'distance-between-cities':
-    case 'distance-between-zip-codes':
-    case 'multi-stop-route-distance':
-    case 'find-nearest-national-park':
       return <DistanceBetweenPlacesView />;
-    case 'coordinate-distance-calculator':
+    case 'distance-between-zip-codes':
+      return <DistanceBetweenZipCodesView />;
+    case 'distance-between-cities':
+      return <DistanceBetweenCitiesView />;
+    case 'multi-stop-route-distance':
+      return <MultiStopRouteDistanceView />;
     case 'distance-matrix-calculator':
+      return <DistanceMatrixView />;
+    case 'horizon-distance-calculator':
+      return <HorizonDistanceView />;
+    case 'coordinate-distance-calculator':
       return <CoordinateDistanceCalculatorView />;
     case 'drive-time-map':
       return <DriveTimeMapView />;
@@ -444,6 +530,12 @@ function renderToolComponent(slug: string) {
       return <AddressToCoordinatesView />;
     case 'coordinates-to-address':
       return <CoordinatesToAddressView />;
+    case 'coordinates-to-city':
+      return <CoordinatesToCityView />;
+    case 'coordinates-to-country':
+      return <CoordinatesToCountryView />;
+    case 'coordinates-to-state':
+      return <CoordinatesToStateView />;
     case 'gps-coordinate-converter':
       return <CoordinateConverterView />;
     case 'utm-converter':
@@ -488,50 +580,71 @@ function renderToolComponent(slug: string) {
       return <FormatConverterView initialMode="kml_to_geojson" />;
     case 'gpx-to-kml':
       return <FormatConverterView initialMode="gpx_to_kml" />;
+    case 'kml-to-csv':
+      return <FormatConverterView initialMode="kml_to_csv" />;
+    case 'kml-to-gpx':
+      return <FormatConverterView initialMode="kml_to_gpx" />;
+    case 'kml-editor':
+      return <KmlEditorView />;
+    case 'kml-validator':
+      return <KmlValidatorView />;
+    case 'kml-to-kmz':
+      return <KmlToKmzView />;
+    case 'kmz-to-kml':
+      return <KmzToKmlView />;
+    case 'kml-tools':
+      return <KmlToolsHubView />;
     case 'csv-to-map':
       return <CsvToMapView />;
     case 'map-drawer':
     case 'embed-map':
     case 'map-with-legend':
-    case 'color-a-map':
       return <MapDrawerView />;
+    case 'color-a-map':
+      return <ColorAMapView />;
+    case 'country-size-comparison':
+      return <CountrySizeComparisonView />;
+    case 'map-with-counties':
+      return <MapWithCountiesView />;
+    case 'map-with-zip-codes':
+      return <MapWithZipCodesView />;
+    case 'us-county-map-interactive':
+      return <UsCountyMapInteractiveView />;
     case 'pin-drop-map':
       return <PinDropMapView />;
 
     // Unit Converters & Speed/Time
     case 'area-unit-converter':
-    case 'country-size-comparison':
       return <AreaUnitConverterView />;
     case 'distance-unit-converter':
       return <DistanceUnitConverterView />;
     case 'speed-distance-time-calculator':
-    case 'horizon-distance-calculator':
-    case 'time-difference-calculator':
       return <SpeedDistanceTimeView />;
+    case 'time-difference-calculator':
+      return <TimeDifferenceCalculatorView />;
 
     // Location Identity Lookups
     case 'what-county-am-i-in':
     case 'address-to-county-lookup':
-    case 'county-map-with-cities':
-    case 'map-with-counties':
-    case 'us-county-map-interactive':
       return <LocationIdentityView type="county" />;
+    case 'county-map-with-cities':
+      return <CountyMapWithCitiesView />;
     case 'what-state-am-i-in':
-    case 'coordinates-to-state':
       return <LocationIdentityView type="state" />;
     case 'what-city-am-i-in':
-    case 'coordinates-to-city':
       return <LocationIdentityView type="city" />;
     case 'what-zip-code-am-i-in':
-    case 'map-with-zip-codes':
       return <LocationIdentityView type="zip" />;
     case 'what-country-am-i-in':
-    case 'coordinates-to-country':
       return <LocationIdentityView type="country" />;
     case 'find-zip-codes-in-radius':
+      return <FindZipCodesInRadiusView />;
     case 'find-cities-in-radius':
+      return <FindCitiesInRadiusView />;
     case 'population-within-radius':
-      return <MapRadiusView />;
+      return <PopulationWithinRadiusView />;
+    case 'find-nearest-national-park':
+      return <FindNearestNationalParkView />;
 
     // Elevation, Astronomy & Curiosities
     case 'elevation-finder':
@@ -543,15 +656,17 @@ function renderToolComponent(slug: string) {
     case 'sunrise-sunset-calculator':
     case 'us-time-zone-map':
     case 'world-time-zone-map':
-    case 'time-zone-finder':
       return <AstronomyView />;
+    case 'time-zone-finder':
+      return <TimeZoneFinderView />;
     case 'sun-position-calculator':
       return <SunPositionView />;
     case 'day-night-map':
       return <DayNightMapView />;
     case 'moon-phase-calendar':
-    case 'moon-position-map':
       return <MoonPhaseView />;
+    case 'moon-position-map':
+      return <MoonPositionMapView />;
     case 'antipode-finder':
     case 'earth-tunnel-map':
     case 'map-tunnel':

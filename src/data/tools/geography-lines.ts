@@ -41,12 +41,12 @@ export const GEOGRAPHY_LINES: Record<string, GeoLineData> = {
   },
   'tropic-of-cancer': {
     slug: 'tropic-of-cancer',
-    title: 'Tropic of Cancer (23° 26\' 11" N)',
-    latitudeLongitude: '23.4364° N Latitude',
-    directAnswer: 'The Tropic of Cancer is the northernmost latitude on Earth where the Sun can appear directly overhead at solar noon. This solar culmination occurs on the June Solstice (Summer Solstice in the Northern Hemisphere).',
-    lengthKm: '36,788 km',
-    countriesCrossed: ['Mexico', 'Bahamas', 'Mauritania', 'Mali', 'Algeria', 'Niger', 'Libya', 'Egypt', 'Saudi Arabia', 'UAE', 'Oman', 'India', 'Bangladesh', 'Myanmar', 'China', 'Taiwan'],
-    scientificSignificance: 'Marks the northern boundary of the Tropics. Sun altitude reaches exactly 90 degrees at the summer solstice.',
+    title: 'Tropic of Cancer (approx. 23.5° N)',
+    latitudeLongitude: 'Approx. 23.4364° N cartographic reference',
+    directAnswer: 'The Tropic of Cancer is the approximate northern latitude limit where the Sun can appear directly overhead at solar noon, near 23.5° N and associated with the June solstice.',
+    lengthKm: 'Approximately 36,788 km along the WGS 84 reference parallel',
+    countriesCrossed: ['Algeria', 'Niger', 'Libya', 'Egypt', 'Saudi Arabia', 'United Arab Emirates', 'Oman', 'India', 'Bangladesh', 'Myanmar', 'China', 'Taiwan', 'Mexico', 'Bahamas', 'Western Sahara (disputed territory)', 'Mauritania', 'Mali'],
+    scientificSignificance: 'Marks the approximate northern boundary of the tropics. The astronomical tropic follows changes in Earth’s axial tilt; its latitude is not a permanent fixed value.',
     lineCoordinates: [
       [-180, 23.4364], [-90, 23.4364], [0, 23.4364], [90, 23.4364], [180, 23.4364]
     ],
@@ -54,11 +54,11 @@ export const GEOGRAPHY_LINES: Record<string, GeoLineData> = {
   'tropic-of-capricorn': {
     slug: 'tropic-of-capricorn',
     title: 'Tropic of Capricorn (23° 26\' 11" S)',
-    latitudeLongitude: '23.4364° S Latitude',
-    directAnswer: 'The Tropic of Capricorn is the southernmost latitude on Earth where the Sun can appear directly overhead at solar noon. This solar culmination occurs on the December Solstice (Summer Solstice in the Southern Hemisphere).',
-    lengthKm: '36,788 km',
+    latitudeLongitude: '23.4364° S approximate cartographic reference',
+    directAnswer: 'The Tropic of Capricorn is the approximate southern latitude limit where the Sun can appear directly overhead at solar noon. It is commonly shown near 23.5° south and is associated with the Sun’s southernmost subsolar position around the December solstice.',
+    lengthKm: 'Approximately 36,788 km along the WGS 84 reference parallel',
     countriesCrossed: ['Chile', 'Argentina', 'Paraguay', 'Brazil', 'Namibia', 'Botswana', 'South Africa', 'Mozambique', 'Madagascar', 'Australia'],
-    scientificSignificance: 'Marks the southern boundary of the Tropics. Sun altitude reaches exactly 90 degrees at the winter/December solstice.',
+    scientificSignificance: 'Marks the approximate southern boundary of the tropics. The astronomical tropic follows changes in Earth’s axial tilt; this fixed map reference is not a date-specific solar calculation.',
     lineCoordinates: [
       [-180, -23.4364], [-90, -23.4364], [0, -23.4364], [90, -23.4364], [180, -23.4364]
     ],
@@ -66,11 +66,11 @@ export const GEOGRAPHY_LINES: Record<string, GeoLineData> = {
   'arctic-circle': {
     slug: 'arctic-circle',
     title: 'Arctic Circle (66° 33\' 49" N)',
-    latitudeLongitude: '66.5636° N Latitude',
-    directAnswer: 'The Arctic Circle marks the northern polar latitude above which the Sun remains above the horizon for 24 continuous hours on the June solstice (Midnight Sun) and below the horizon on the December solstice (Polar Night).',
-    lengthKm: '15,999 km',
+    latitudeLongitude: '66.5636° N approximate cartographic reference',
+    directAnswer: 'The Arctic Circle is the approximate parallel near 66°33′ north latitude. It marks the southern limit where, under the ideal astronomical definition, at least one day each year can have 24-hour daylight and one can have 24-hour darkness.',
+    lengthKm: 'Approximately 15,984 km along the WGS 84 reference parallel',
     countriesCrossed: ['Norway', 'Sweden', 'Finland', 'Russia', 'United States (Alaska)', 'Canada', 'Denmark (Greenland)', 'Iceland (Grimsey)'],
-    scientificSignificance: 'Defines the boundary of the Arctic region and marks the southern limit of 24-hour polar day and night cycles.',
+    scientificSignificance: 'The astronomical circle is related to Earth’s axial tilt and shifts over time. Terrain, atmospheric refraction, and local horizon conditions can affect observed sunrise and sunset.',
     lineCoordinates: [
       [-180, 66.5636], [-90, 66.5636], [0, 66.5636], [90, 66.5636], [180, 66.5636]
     ],
@@ -78,11 +78,11 @@ export const GEOGRAPHY_LINES: Record<string, GeoLineData> = {
   'antarctic-circle': {
     slug: 'antarctic-circle',
     title: 'Antarctic Circle (66° 33\' 49" S)',
-    latitudeLongitude: '66.5636° S Latitude',
-    directAnswer: 'The Antarctic Circle marks the southern polar latitude below which the Sun remains above the horizon for 24 continuous hours on the December solstice and below the horizon on the June solstice.',
-    lengthKm: '15,999 km',
-    countriesCrossed: ['Antarctica (territorial claims by 7 nations governed by Antarctic Treaty System)'],
-    scientificSignificance: 'Defines the boundary of the Antarctic ice sheet continent and polar climate system.',
+    latitudeLongitude: '66.5636° S approximate cartographic reference',
+    directAnswer: 'The Antarctic Circle is the approximate line near 66°34′ south latitude. At the circle, the Sun does not set on the Southern Hemisphere summer solstice and does not rise on the winter solstice under the idealized astronomical definition.',
+    lengthKm: 'Approximately 15,984 km along the WGS 84 reference parallel',
+    countriesCrossed: ['Antarctica and the Southern Ocean (territorial claims are subject to the Antarctic Treaty System)'],
+    scientificSignificance: 'Marks an approximate astronomical polar-day and polar-night limit. It is distinct from the Antarctic Treaty area south of 60°S.',
     lineCoordinates: [
       [-180, -66.5636], [-90, -66.5636], [0, -66.5636], [90, -66.5636], [180, -66.5636]
     ],

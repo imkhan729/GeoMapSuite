@@ -634,6 +634,68 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     indexable: true,
     updatedAt: '2026-09-17',
   },
+  'kml-to-csv': {
+    slug: 'kml-to-csv',
+    name: 'KML to CSV Converter',
+    shortName: 'KML to CSV',
+    category: 'data',
+    scope: 'worldwide',
+    status: 'live',
+    description: 'Convert KML placemarks to a spreadsheet-ready CSV with coordinates, geometry types, descriptions, and attributes in your browser.',
+    directAnswer: 'The KML to CSV Converter exports one CSV row per KML Placemark and labels longitude, latitude, altitude, geometry type, description, and complete coordinates without uploading your file.',
+    primaryKeyword: 'kml to csv',
+    secondaryKeywords: ['convert kml to csv', 'kml placemarks to csv', 'kmz to csv', 'google earth to csv'],
+    relatedTools: ['kml-viewer', 'kml-to-geojson', 'csv-to-map'],
+    requiresMap: false,
+    requiresGeocoding: false,
+    requiresRouting: false,
+    requiresElevation: false,
+    clientOnlyCapable: true,
+    indexable: true,
+    updatedAt: '2026-09-22',
+  },
+  'kml-to-gpx': {
+    slug: 'kml-to-gpx', name: 'KML to GPX Converter', shortName: 'KML to GPX', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Convert KML points and routes to GPX waypoints and tracks for GPS devices and outdoor mapping apps in your browser.',
+    directAnswer: 'The KML to GPX Converter maps KML Point placemarks to GPX waypoints and LineString paths to GPX tracks while preserving coordinates and elevations locally.',
+    primaryKeyword: 'kml to gpx', secondaryKeywords: ['convert kml to gpx', 'google earth to gpx', 'kml route to gpx'], relatedTools: ['kml-viewer', 'gpx-viewer', 'gpx-to-kml'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
+  'kml-editor': {
+    slug: 'kml-editor', name: 'KML Editor Online', shortName: 'KML Editor', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Edit KML placemark names, visibility, and basic colors online, then download a clean KML file privately in your browser.',
+    directAnswer: 'The KML Editor changes supported Point, LineString, and Polygon placemarks locally without uploading your geographic file.',
+    primaryKeyword: 'kml editor', secondaryKeywords: ['edit kml online', 'edit kmz online', 'kml map editor'], relatedTools: ['kml-viewer', 'kml-validator', 'kml-to-geojson'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
+  'kml-validator': {
+    slug: 'kml-validator', name: 'KML Validator', shortName: 'KML Validator', category: 'data', scope: 'worldwide', status: 'live',
+    description: 'Check KML XML structure, namespaces, placemarks, and coordinate bounds online before importing into Google Earth or GIS software.',
+    directAnswer: 'The KML Validator performs a fast client-side preflight for well-formed XML, OGC namespace, Placemark structure, and WGS 84 coordinate ranges.',
+    primaryKeyword: 'kml validator', secondaryKeywords: ['validate kml', 'check kml file', 'kml xml validator'], relatedTools: ['kml-editor', 'kml-viewer', 'kml-to-geojson'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
+  'kml-to-kmz': {
+    slug: 'kml-to-kmz', name: 'KML to KMZ Converter', shortName: 'KML to KMZ', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Package a valid KML document into a Google Earth KMZ ZIP archive locally without uploading your map file.',
+    directAnswer: 'The KML to KMZ Converter validates your KML and writes it as doc.kml inside a standards-compatible KMZ archive in your browser.',
+    primaryKeyword: 'kml to kmz', secondaryKeywords: ['convert kml to kmz', 'create kmz file', 'compress kml'], relatedTools: ['kml-viewer', 'kml-validator', 'kml-editor'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
+  'kmz-to-kml': {
+    slug: 'kmz-to-kml', name: 'KMZ to KML Converter', shortName: 'KMZ to KML', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Extract the main KML document from a KMZ ZIP archive locally for editing, validation, or GIS conversion.',
+    directAnswer: 'The KMZ to KML Converter finds and downloads the main .kml document from a local KMZ archive without uploading your map file.',
+    primaryKeyword: 'kmz to kml', secondaryKeywords: ['extract kml from kmz', 'unzip kmz', 'kmz converter'], relatedTools: ['kml-to-kmz', 'kml-validator', 'kml-editor'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
+  'kml-tools': {
+    slug: 'kml-tools', name: 'KML Tools', shortName: 'KML Tools', category: 'data', scope: 'worldwide', status: 'live',
+    description: 'Browse free KML and KMZ tools for viewing, converting, editing, validating, and packaging geographic files.',
+    directAnswer: 'GeoMap Suite KML tools cover the main browser workflows for KML and KMZ files with local, privacy-first processing.',
+    primaryKeyword: 'kml tools', secondaryKeywords: ['kml tools online', 'kmz tools', 'kml converter tools'], relatedTools: ['kml-viewer', 'kml-editor', 'kml-validator'],
+    requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, indexable: true, updatedAt: '2026-09-22',
+  },
   'csv-to-map': {
     slug: 'csv-to-map',
     name: 'CSV to Map (Batch Point Plotter)',
@@ -1068,7 +1130,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     badge: 'Popular',
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-22',
   },
 
   'distance-between-two-places': {
@@ -1237,14 +1299,14 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     primaryKeyword: 'horizon distance calculator',
     secondaryKeywords: ["how far is the horizon","distance to horizon by height","earth curvature horizon"],
     relatedTools: ["distance-between-two-places","elevation-finder","speed-distance-time-calculator"],
-    requiresMap: false,
+    requiresMap: true,
     requiresGeocoding: false,
     requiresRouting: false,
     requiresElevation: false,
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'coordinates-to-city': {
@@ -1399,6 +1461,18 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     badge: 'Embed',
     indexable: true,
     updatedAt: '2026-09-19',
+  },
+
+  'google-maps-embed-code-generator': {
+    slug: 'google-maps-embed-code-generator', name: 'Google Maps Embed Code Generator', shortName: 'Google Maps Embed', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Generate responsive Google Maps iframe code for a place or landmark without an API key.',
+    directAnswer: 'Create a free Google Maps iframe snippet in your browser for embedding a place map on a website.',
+    primaryKeyword: 'google maps embed code generator', secondaryKeywords: ['embed google maps without api key','map iframe generator','google map embed code'], relatedTools: ['embed-map','map-drawer','pin-drop-map'], requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, badge: 'Embed', indexable: true, updatedAt: '2026-09-22',
+  },
+
+  'map-with-legend-maker': {
+    slug: 'map-with-legend-maker', name: 'Map With Legend Maker', shortName: 'Map Legend Maker', category: 'cartography', scope: 'worldwide', status: 'live',
+    description: 'Create a custom map legend with labels, colors, and a copyable configuration.', directAnswer: 'Build a clear map legend for thematic maps, reports, and classroom projects directly in your browser.', primaryKeyword: 'map legend maker', secondaryKeywords: ['map legend generator','custom map legend','choropleth legend maker'], relatedTools: ['map-with-legend','color-a-map','map-drawer'], requiresMap: false, requiresGeocoding: false, requiresRouting: false, requiresElevation: false, clientOnlyCapable: true, badge: 'Cartography', indexable: true, updatedAt: '2026-09-22',
   },
 
   'map-with-legend': {
@@ -1716,10 +1790,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'reference',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive world map of standard UTC time zones, UTC offsets, and current local times across international borders.',
-    directAnswer: 'The World Time Zone Map displays all global standard time zones from UTC-12 to UTC+14 with live world clocks and International Date Line visualization.',
+    description: 'Explore global UTC offset bands, representative regions, the International Date Line, and browser time with a clear world time-zone guide.',
+    directAnswer: 'The World Time Zone Map groups representative global civil-time bands from about UTC−12 to UTC+14 and explains why real boundaries and dates vary by political time-zone rules.',
     primaryKeyword: 'world time zone map',
-    secondaryKeywords: ["global time zones map","utc time map","world clock map"],
+    secondaryKeywords: ["global time zones map","utc time map","world clock map","international date line map","utc offset map","world time zones"],
     relatedTools: ["us-time-zone-map","time-difference-calculator","time-zone-finder"],
     requiresMap: true,
     requiresGeocoding: false,
@@ -1728,7 +1802,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-22',
   },
 
   'time-zone-finder': {
@@ -1804,8 +1878,8 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'geographic-lines',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive map and guide to Earth’s Equator (0° Latitude), countries crossed, climate, and physics.',
-    directAnswer: 'The Equator is Earth’s 0° parallel of latitude, spanning 40,075 kilometers (24,901 miles) across 13 countries and dividing the globe into Northern and Southern Hemispheres.',
+    description: 'Explore an interactive Equator map at 0° latitude, inspect coordinates, see the countries crossed on land, and learn how its WGS 84 circumference is derived.',
+    directAnswer: 'The Equator is Earth’s 0° parallel of latitude. It divides the Northern and Southern Hemispheres and has a WGS 84 ellipsoidal circumference of approximately 40,075.017 km.',
     primaryKeyword: 'equator map',
     secondaryKeywords: ["world map with equator","countries on the equator","0 degrees latitude"],
     relatedTools: ["prime-meridian","tropic-of-cancer","tropic-of-capricorn"],
@@ -1816,7 +1890,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'tropic-of-cancer': {
@@ -1826,8 +1900,8 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'geographic-lines',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive map of the Tropic of Cancer (23.4364° N), June Solstice overhead sun position, and countries traversed.',
-    directAnswer: 'The Tropic of Cancer is the northernmost latitude on Earth (approx. 23° 26′ N) where the Sun can be directly overhead at solar noon, occurring on the June Solstice.',
+    description: 'Explore an interactive Tropic of Cancer map near 23.5° north, inspect coordinates and country crossings, and learn how the line relates to the June solstice.',
+    directAnswer: 'The Tropic of Cancer is the approximate northern latitude limit where the Sun can appear directly overhead at solar noon, near 23.5° N and associated with the June solstice.',
     primaryKeyword: 'tropic of cancer map',
     secondaryKeywords: ["countries on tropic of cancer","23.5 degrees north latitude","northern tropic map"],
     relatedTools: ["tropic-of-capricorn","equator","arctic-circle"],
@@ -1838,7 +1912,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'tropic-of-capricorn': {
@@ -1848,8 +1922,8 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'geographic-lines',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive map of the Tropic of Capricorn (23.4364° S), December Solstice overhead sun position, and countries traversed.',
-    directAnswer: 'The Tropic of Capricorn is the southernmost latitude on Earth (approx. 23° 26′ S) where the Sun can be directly overhead at solar noon, occurring on the December Solstice.',
+    description: 'Explore an interactive Tropic of Capricorn map at an approximate 23.5° S reference latitude. Inspect coordinates, commonly listed country crossings, and the December solstice connection.',
+    directAnswer: 'The Tropic of Capricorn is the approximate southern latitude limit where the Sun can appear directly overhead at solar noon. It is commonly shown near 23.5° south and is associated with the Sun’s southernmost subsolar position around the December solstice.',
     primaryKeyword: 'tropic of capricorn map',
     secondaryKeywords: ["countries on tropic of capricorn","23.5 degrees south latitude","southern tropic map"],
     relatedTools: ["tropic-of-cancer","equator","antarctic-circle"],
@@ -1860,7 +1934,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'arctic-circle': {
@@ -1870,10 +1944,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'geographic-lines',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive map of the Arctic Circle (66.56° N), midnight sun limits, polar night boundaries, and Arctic nations.',
-    directAnswer: 'The Arctic Circle marks the latitude (approx. 66° 33′ N) north of which the Sun remains above the horizon for 24 continuous hours on the summer solstice (Midnight Sun).',
+    description: 'Explore an interactive Arctic Circle map near 66.56° N. Inspect longitude coordinates, learn about Arctic states, and understand the midnight sun and polar night limits.',
+    directAnswer: 'The Arctic Circle is the approximate parallel near 66°33′ north latitude. It marks the southern limit where, under the ideal astronomical definition, at least one day each year can have 24-hour daylight and one can have 24-hour darkness.',
     primaryKeyword: 'arctic circle map',
-    secondaryKeywords: ["countries in arctic circle","66.5 degrees north latitude","polar circle map"],
+    secondaryKeywords: ["arctic circle latitude","countries in the arctic circle","where is the arctic circle","midnight sun map","polar night map"],
     relatedTools: ["antarctic-circle","tropic-of-cancer","equator"],
     requiresMap: true,
     requiresGeocoding: false,
@@ -1882,7 +1956,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'antarctic-circle': {
@@ -1892,10 +1966,10 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     category: 'geographic-lines',
     scope: 'worldwide',
     status: 'live',
-    description: 'Interactive map of the Antarctic Circle (66.56° S), polar day and night boundaries, and Antarctic territory claims.',
-    directAnswer: 'The Antarctic Circle marks the latitude (approx. 66° 33′ S) south of which the Sun remains above the horizon for at least 24 continuous hours during the Southern Hemisphere summer.',
+    description: 'Explore an interactive Antarctic Circle map near 66.56° S. Inspect coordinates and learn how the approximate latitude relates to polar day, polar night, and the Antarctic Treaty area.',
+    directAnswer: 'The Antarctic Circle is the approximate line near 66°34′ south latitude. At the circle, the Sun does not set on the Southern Hemisphere summer solstice and does not rise on the winter solstice under the idealized astronomical definition.',
     primaryKeyword: 'antarctic circle map',
-    secondaryKeywords: ["antarctic circle latitude","66.5 degrees south","antarctica map"],
+    secondaryKeywords: ["antarctic circle latitude","where is the antarctic circle","66.5 degrees south","antarctic circle map latitude","polar day and polar night"],
     relatedTools: ["arctic-circle","tropic-of-capricorn","equator"],
     requiresMap: true,
     requiresGeocoding: false,
@@ -1904,7 +1978,7 @@ export const TOOL_REGISTRY: Record<string, ToolRegistryItem> = {
     clientOnlyCapable: true,
     
     indexable: true,
-    updatedAt: '2026-09-19',
+    updatedAt: '2026-09-21',
   },
 
   'prime-meridian': {
@@ -1995,6 +2069,12 @@ export const TOOL_CATEGORIES: { id: ToolCategory; label: string; description: st
 // misleading, or duplicate indexable URLs.
 export const IMPLEMENTED_TOOL_SLUGS = new Set([
   'map-radius', 'map-area-calculator', 'distance-between-places',
+  'distance-between-zip-codes', 'distance-between-cities',
+  'multi-stop-route-distance', 'distance-matrix-calculator',
+  'horizon-distance-calculator',
+  'coordinates-to-city',
+  'coordinates-to-country',
+  'coordinates-to-state',
   'coordinate-distance-calculator', 'drive-time-map', 'geofence-generator',
   'buffer-map', 'latitude-longitude-finder', 'address-to-coordinates',
   'coordinates-to-address', 'gps-coordinate-converter', 'utm-converter',
@@ -2003,14 +2083,29 @@ export const IMPLEMENTED_TOOL_SLUGS = new Set([
   'destination-point-calculator', 'bounding-box-calculator',
   'geographic-center-finder', 'kml-viewer', 'gpx-viewer', 'geojson-viewer',
   'shapefile-viewer', 'geojson-validator', 'geojson-to-kml',
-  'kml-to-geojson', 'gpx-to-kml', 'csv-to-map', 'map-drawer',
+  'kml-to-geojson', 'gpx-to-kml', 'kml-to-csv', 'kml-to-gpx', 'kml-editor', 'kml-validator', 'kml-to-kmz', 'kmz-to-kml', 'kml-tools', 'csv-to-map', 'map-drawer', 'color-a-map',
+  'country-size-comparison', 'map-with-counties', 'map-with-zip-codes',
+  'us-county-map-interactive', 'find-zip-codes-in-radius', 'find-cities-in-radius',
+  'population-within-radius', 'county-map-with-cities', 'find-nearest-national-park',
   'pin-drop-map', 'area-unit-converter', 'distance-unit-converter',
   'speed-distance-time-calculator', 'what-county-am-i-in',
   'what-state-am-i-in', 'what-city-am-i-in', 'what-zip-code-am-i-in',
   'what-country-am-i-in', 'elevation-finder', 'what-is-my-elevation',
   'sunrise-sunset-calculator', 'sun-position-calculator', 'day-night-map',
   'moon-phase-calendar', 'antipode-finder', 'earth-tunnel-map',
-  'random-location-generator',
+  'random-location-generator', 'time-zone-finder', 'time-difference-calculator',
+  'moon-position-map',
+  'equator',
+  'tropic-of-cancer',
+  'tropic-of-capricorn',
+  'arctic-circle',
+  'antarctic-circle',
+  'prime-meridian',
+  'international-date-line',
+  'google-maps-embed-code-generator',
+  'map-with-legend-maker',
+  'us-time-zone-map',
+  'world-time-zone-map',
 ]);
 
 export function getAllTools(): ToolRegistryItem[] {

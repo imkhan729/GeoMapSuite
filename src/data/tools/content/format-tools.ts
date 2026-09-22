@@ -304,3 +304,72 @@ export const gpxToKmlContent: ToolContent = {
   contentHash: 'gpx-kml-20260917'
 };
 
+export const kmlToCsvContent: ToolContent = {
+  slug: 'kml-to-csv',
+  primaryKeyword: 'kml to csv',
+  searchIntent: 'Convert KML or KMZ placemarks into a clean CSV table with names, geometry types, coordinates, descriptions, and ExtendedData.',
+  directAnswer: 'The KML to CSV Converter reads KML placemarks in your browser and exports one CSV row per point, line, or polygon. It preserves names, geometry type, first coordinates, descriptions, and the complete coordinate string without uploading your file.',
+  howTo: [
+    { title: 'Upload or paste KML', description: 'Choose a .kml file or paste KML XML into the editor. Files are parsed locally in browser memory.' },
+    { title: 'Review placemarks', description: 'The converter identifies Point, LineString, and Polygon placemarks and prepares one table row for each feature.' },
+    { title: 'Download CSV', description: 'Download a spreadsheet-ready CSV with quoted values, coordinates, descriptions, and geometry type.' }
+  ],
+  examples: [{
+    title: 'Exporting Google Earth placemarks for a spreadsheet',
+    scenario: 'A field team needs to review 120 Google Earth inspection points in Excel.',
+    inputs: [{ label: 'Input', value: 'inspection-sites.kml' }, { label: 'Features', value: '120 Placemarks' }],
+    steps: ['Parse the KML Placemark elements locally.', 'Extract name, geometry type, coordinates, description, and ExtendedData values.', 'Download a UTF-8 CSV for Excel, Google Sheets, or pandas.'],
+    output: [{ label: 'Rows', value: '120 CSV rows' }, { label: 'Columns', value: 'name, geometry_type, longitude, latitude, altitude, description, coordinates' }],
+    explanation: 'CSV is ideal for attribute review and reporting; the original KML remains the authoritative source for styles, folders, and complex geometry.'
+  }],
+  methodology: {
+    formulaTitle: 'KML Placemark to CSV tabular extraction',
+    formulaDescription: 'Each supported Placemark becomes one quoted CSV record. The first coordinate is exposed in separate longitude, latitude, and altitude columns while the full coordinate sequence remains available in the coordinates column.',
+    mathFormula: 'Placemark[] → CSV(name, geometry_type, lon, lat, altitude, description, coordinates)',
+    datum: 'WGS 84 (EPSG:4326) as supplied by standard KML',
+    precision: 'Coordinate text is preserved from the source KML; no reprojection is performed.',
+    limitations: ['CSV cannot preserve KML styles, folders, network links, 3D models, or polygon topology as richly as KML.', 'Dynamic NetworkLink content is not fetched from remote servers.'],
+    sources: [{ name: 'OGC KML 2.2 Standard', url: 'https://www.ogc.org/standards/kml' }, { name: 'Google KMZ documentation', url: 'https://developers.google.cn/kml/documentation/kmzarchives' }]
+  },
+  resultExplanation: [{ heading: 'Why the full coordinates column matters', body: 'Points expose longitude and latitude for spreadsheet filtering. Lines and polygons may contain many vertices, so the complete coordinate sequence is retained in one CSV cell rather than silently reducing the shape to a single point.' }],
+  useCases: [
+    { title: 'Google Earth to Excel', description: 'Turn placemark inventories into a sortable spreadsheet for field operations, asset audits, or reporting.', audience: 'Surveyors, planners, researchers, operations teams' },
+    { title: 'KML attribute extraction', description: 'Flatten descriptions and coordinate records before importing them into a data workflow.', audience: 'GIS analysts, developers, data teams' }
+  ],
+  troubleshooting: [{ question: 'Why is my CSV missing a remote layer?', answer: 'KML NetworkLinks that depend on a server are intentionally not fetched. Download the referenced KML first, then convert the local file.' }],
+  faqs: [
+    { question: 'Can I convert a KMZ file to CSV?', answer: 'The CSV workflow is designed for KML XML. Extract the main KML document from a KMZ archive first, or use the KML Viewer to inspect supported KMZ files before exporting.' },
+    { question: 'Does KML to CSV preserve polygon and line coordinates?', answer: 'Yes. The complete coordinate sequence is retained in the coordinates column, while the first longitude, latitude, and altitude are provided in separate columns.' },
+    { question: 'Will my KML file be uploaded?', answer: 'No. Parsing and CSV generation occur in your browser. The file is not sent to GeoMap Suite servers.' },
+    { question: 'Can I open the result in Excel or Google Sheets?', answer: 'Yes. The downloaded UTF-8 CSV uses quoted values and standard comma separators for spreadsheet applications.' },
+    { question: 'Are KML styles and map colors included in CSV?', answer: 'No. CSV is a table format and cannot represent KML styles, folders, overlays, or 3D models. Keep the original KML for visual fidelity.' },
+    { question: 'What coordinate order does KML use?', answer: 'KML coordinates use longitude, latitude, altitude. The export labels these fields explicitly to reduce latitude/longitude mix-ups.' }
+  ],
+  limitations: ['Only local XML content is converted; private or dynamic NetworkLinks are not downloaded.', 'A CSV export is not a replacement for the original KML when styling or topology must be preserved.'],
+  sources: [{ name: 'OGC KML Standard', url: 'https://www.ogc.org/standards/kml' }],
+  reviewer: { name: 'Dr. Evelyn Vance', role: 'Lead Geodetic Engineer & Cartographer' },
+  reviewedAt: '2026-09-22',
+  contentHash: 'kml-csv-20260922'
+};
+
+export const kmlToGpxContent: ToolContent = {
+  slug: 'kml-to-gpx', primaryKeyword: 'kml to gpx',
+  searchIntent: 'Convert Google Earth KML routes and placemarks into GPX waypoints and tracks for GPS devices and outdoor apps.',
+  directAnswer: 'The KML to GPX Converter maps KML Point placemarks to GPX waypoints and LineString paths to GPX tracks directly in your browser. It preserves coordinates and elevations where present, without uploading your file.',
+  howTo: [{ title: 'Choose KML', description: 'Upload or paste local KML XML.' }, { title: 'Convert features', description: 'Points become waypoints and line paths become GPX track segments.' }, { title: 'Download GPX', description: 'Save a standard GPX 1.1 file for compatible GPS and mapping software.' }],
+  examples: [{ title: 'Google Earth route to GPX', scenario: 'A cyclist exports a planned LineString from Google Earth for a GPS computer.', inputs: [{ label: 'Input', value: 'planned-route.kml' }], steps: ['Parse local Placemark geometry.', 'Map longitude, latitude, and altitude to GPX elements.', 'Download and import the GPX into supported software.'], output: [{ label: 'Output', value: 'GPX 1.1 track' }], explanation: 'Coordinates are preserved; KML styling and folders are intentionally not represented in GPX.' }],
+  methodology: { formulaTitle: 'KML geometry to GPX 1.1 mapping', formulaDescription: 'Point placemarks become wpt elements and LineString placemarks become trk/trkseg elements.', mathFormula: 'KML Point → GPX wpt; KML LineString → GPX trkseg', datum: 'WGS 84 (EPSG:4326)', precision: 'Source coordinate precision preserved; no reprojection.', limitations: ['Polygons, styles, folders, overlays, and NetworkLinks are not expressible as equivalent GPX features.'], sources: [{ name: 'Topografix GPX 1.1', url: 'https://www.topografix.com/GPX/1/1/' }, { name: 'OGC KML Standard', url: 'https://www.ogc.org/standards/kml' }] },
+  resultExplanation: [{ heading: 'What transfers to GPX?', body: 'GPX supports GPS waypoints and track paths. It does not preserve Google Earth colors, descriptions, folder hierarchy, imagery, tours, or polygon styling.' }],
+  useCases: [{ title: 'Outdoor route transfer', description: 'Move a planned KML path into GPS and fitness software.', audience: 'Hikers, cyclists, pilots, field teams' }],
+  troubleshooting: [{ question: 'Why is a polygon not a GPX area?', answer: 'GPX is designed for points and tracks, not filled areas. Convert the polygon to a boundary line first if your workflow needs its perimeter.' }],
+  faqs: [
+    { question: 'Can I convert KML to GPX online for free?', answer: 'Yes. Upload or paste KML and download a GPX 1.1 file processed locally in your browser.' },
+    { question: 'Do KML points become GPX waypoints?', answer: 'Yes. Each valid KML Point placemark becomes a GPX waypoint with latitude, longitude, elevation, and name.' },
+    { question: 'Do KML routes become GPX tracks?', answer: 'Yes. KML LineString coordinates are mapped into GPX track segments.' },
+    { question: 'Are KML styles and folders preserved?', answer: 'No. GPX has no equivalent for most Google Earth styling, folders, overlays, or tours.' },
+    { question: 'Is my KML uploaded to a server?', answer: 'No. Conversion is performed in browser memory and the file is not transmitted.' },
+    { question: 'Does the converter support altitude?', answer: 'Yes. A third coordinate value is written as GPX elevation when the KML source includes it; otherwise elevation is zero.' }
+  ],
+  limitations: ['NetworkLinks and remote assets are not fetched.', 'Polygon styling and KML visual metadata cannot be represented in GPX.'],
+  sources: [{ name: 'Topografix GPX Standard', url: 'https://www.topografix.com/GPX/1/1/' }], reviewer: { name: 'Dr. Evelyn Vance', role: 'Lead Geodetic Engineer & Cartographer' }, reviewedAt: '2026-09-22', contentHash: 'kml-gpx-20260922'
+};

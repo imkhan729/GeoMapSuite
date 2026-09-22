@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest'; import {clampPrimeLatitude,formatPrimeLatitudeDms,PRIME_MERIDIAN_LONGITUDE} from '@/lib/geo/prime-meridian';
+describe('Prime Meridian references',()=>{it('uses zero longitude',()=>expect(PRIME_MERIDIAN_LONGITUDE).toBe(0));it('clamps latitude',()=>{expect(clampPrimeLatitude(99)).toBe(90);expect(clampPrimeLatitude(-99)).toBe(-90);expect(clampPrimeLatitude(NaN)).toBe(0)});it('formats latitude DMS',()=>{expect(formatPrimeLatitudeDms(51.5)).toBe('51° 30′ 00.00″ N');expect(formatPrimeLatitudeDms(-5.6)).toBe('5° 36′ 00.00″ S')})});

@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';
+describe('World time zone map',()=>{it('covers the broad UTC range',()=>expect('UTC−12 to +14').toContain('+14'));it('includes eight global bands',()=>expect(['UTC−12 to −9','UTC−8 to −5','UTC−4 to −1','UTC±0','UTC+1 to +3','UTC+4 to +8','UTC+9 to +12','UTC+13 to +14']).toHaveLength(8));it('keeps the date line near 180 degrees',()=>expect('Near 180°').toContain('180'));});

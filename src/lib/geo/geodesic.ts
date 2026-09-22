@@ -120,3 +120,24 @@ export function calculateGeodesicMidpoint(p1: LatLng, p2: LatLng): LatLng {
     lng: Number(((mid.lon2 !== undefined ? mid.lon2 : p1.lng)).toFixed(6)),
   };
 }
+
+/**
+ * Generates an array of [longitude, latitude] points along the WGS84 geodesic arc between two points.
+ */
+export function generateGeodesicArc(p1: LatLng, p2: LatLng, segments: number = 32): [number, number][] {
+  if (p1.lat === p2.lat && p1.lng === p2.lng) {
+    return [[p1.lng, p1.lat]];
+  }
+  const line = (geod as any).InverseLine(p1.lat, p1.lng, p2.lat, p2.lng);
+  const totalDist = line.s13;
+  if (!totalDist || totalDist === 0) {
+    return [[p1.lng, p1.lat], [p2.lng, p2.lat]];
+  }
+  const points: [number, number][] = [];
+  for (let i = 0; i <= segments; i++) {
+    const s = (i * totalDist) / segments;
+    const pt = line.Position(s);
+    points.push([pt.lon2, pt.lat2]);
+  }
+  return points;
+}

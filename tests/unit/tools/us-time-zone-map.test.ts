@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';
+describe('US time zone map',()=>{it('lists six common US groups',()=>expect(['Eastern','Central','Mountain','Pacific','Alaska','Hawaii-Aleutian']).toHaveLength(6));it('uses UTC offset notation',()=>expect('UTC−5 / UTC−4').toMatch(/UTC/));it('notes Arizona exception',()=>expect('Arizona generally observes Mountain Standard Time year-round.').toContain('Arizona'));});

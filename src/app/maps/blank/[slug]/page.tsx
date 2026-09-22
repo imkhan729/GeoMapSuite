@@ -177,6 +177,12 @@ export default async function BlankMapPage(props: { params: Promise<{ slug: stri
         'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
         'acquireLicensePage': `${SITE_CONFIG.domain}/maps/blank/${mapItem.slug}/`,
         'creditText': SITE_CONFIG.name,
+        'creator': {
+          '@type': 'Organization',
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.domain,
+        },
+        'copyrightNotice': `${SITE_CONFIG.name} map artwork is dedicated to the public domain under CC0 1.0.`,
       },
       {
         '@type': 'Dataset',

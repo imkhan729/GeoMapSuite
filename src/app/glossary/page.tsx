@@ -6,8 +6,8 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { buildCanonicalUrl, SITE_CONFIG } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = {
-  title: `Geographic & Geodetic Glossary | ${SITE_CONFIG.name}`,
-  description: 'Definitions of key terms in geodesy, cartography, GIS, and navigation: Geodesic distance, Isochrone, WGS84, UTM, Rhumb Line, and Datums.',
+  title: `GIS, KML & Geospatial Glossary: Definitions | ${SITE_CONFIG.name}`,
+  description: 'Search-friendly definitions for KML, KMZ, GeoJSON, GPX, shapefiles, WGS84, UTM, geodesic distance, map projections, and GIS analysis terms.',
   alternates: { canonical: buildCanonicalUrl('/glossary') },
 };
 
@@ -40,7 +40,7 @@ export default function GlossaryHubPage() {
     },
     {
       question: 'How are terms categorized in the GeoMap Suite cartography glossary?',
-      answer: 'Our glossary organizes 36 essential definitions across 5 domains: Geodesy & Datums, Projections & Grids, Astronomy & Solar, GIS & Formats, and Spatial Analysis, complete with mathematical formulas and companion calculators.'
+      answer: `Our glossary organizes ${terms.length} definitions across 5 domains: Geodesy & Datums, Projections & Grids, Astronomy & Solar, GIS & Formats, and Spatial Analysis, with practical examples and companion calculators.`
     }
   ];
 
@@ -70,7 +70,7 @@ export default function GlossaryHubPage() {
           Geographic & Cartographic Glossary
         </h1>
         <p className="text-sm text-navy-600 max-w-3xl leading-relaxed">
-          Clear, mathematically rigorous definitions of 36 foundational concepts in geodesy, coordinate reference systems, map projections, GIS data standards, and spatial analysis.
+          Explore practical definitions for high-intent GIS searches such as “what is KML,” “KMZ vs KML,” “GeoJSON format,” “GPX file,” “what is a shapefile,” WGS84, UTM, map projections, and spatial analysis. Each entry combines a plain-language answer with technical details, examples, common mistakes, and a related free tool.
         </p>
       </div>
 

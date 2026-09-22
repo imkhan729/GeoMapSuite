@@ -1,13 +1,26 @@
 import { ToolContent } from '@/types/content';
 import { TOOL_REGISTRY, ToolRegistryItem } from '@/lib/tools/registry';
 import { GEOGRAPHY_LINES } from './geography-lines';
+import { kmlEditorContent } from './content/kml-editor';
+import { kmlValidatorContent } from './content/kml-validator';
+import { kmlToKmzContent } from './content/kml-to-kmz';
+import { kmzToKmlContent } from './content/kmz-to-kml';
+import { kmlToolsContent } from './content/kml-tools';
 
 import { mapRadiusContent } from './content/map-radius';
 import { mapAreaContent } from './content/map-area-calculator';
 import { distanceBetweenPlacesContent } from './content/distance-between-places';
+import { distanceBetweenZipCodesContent } from './content/distance-between-zip-codes';
+import { distanceBetweenCitiesContent } from './content/distance-between-cities';
+import { multiStopRouteDistanceContent } from './content/multi-stop-route-distance';
+import { distanceMatrixContent } from './content/distance-matrix-calculator';
+import { horizonDistanceContent } from './content/horizon-distance-calculator';
 import { latLongFinderContent } from './content/latitude-longitude-finder';
 import { addressToCoordinatesContent } from './content/address-to-coordinates';
 import { coordinatesToAddressContent } from './content/coordinates-to-address';
+import { coordinatesToCityContent } from './content/coordinates-to-city';
+import { coordinatesToCountryContent } from './content/coordinates-to-country';
+import { coordinatesToStateContent } from './content/coordinates-to-state';
 import { gpsCoordinateConverterContent } from './content/gps-coordinate-converter';
 import { elevationFinderContent } from './content/elevation-finder';
 import {
@@ -18,6 +31,16 @@ import {
   mapDrawerContent,
   pinDropMapContent,
 } from './content/gis-file-tools';
+import { colorAMapContent } from './content/color-a-map';
+import { countrySizeComparisonContent } from './content/country-size-comparison';
+import { mapWithCountiesContent } from './content/map-with-counties';
+import { mapWithZipCodesContent } from './content/map-with-zip-codes';
+import { usCountyMapInteractiveContent } from './content/us-county-map-interactive';
+import { findZipCodesInRadiusContent } from './content/find-zip-codes-in-radius';
+import { findCitiesInRadiusContent } from './content/find-cities-in-radius';
+import { populationWithinRadiusContent } from './content/population-within-radius';
+import { countyMapWithCitiesContent } from './content/county-map-with-cities';
+import { findNearestNationalParkContent } from './content/find-nearest-national-park';
 import {
   bearingCalculatorContent,
   midpointCalculatorContent,
@@ -47,6 +70,8 @@ import {
   geojsonToKmlContent,
   kmlToGeojsonContent,
   gpxToKmlContent,
+  kmlToCsvContent,
+  kmlToGpxContent,
 } from './content/format-tools';
 import {
   antipodeFinderContent,
@@ -60,6 +85,20 @@ import {
   dayNightMapContent,
   moonPhaseContent,
 } from './content/astronomy-tools';
+import { timeZoneFinderContent } from './content/time-zone-finder';
+import { timeDifferenceCalculatorContent } from './content/time-difference-calculator';
+import { moonPositionMapContent } from './content/moon-position-map';
+import { equatorContent } from './content/equator';
+import { tropicOfCancerContent } from './content/tropic-of-cancer';
+import { tropicOfCapricornContent } from './content/tropic-of-capricorn';
+import { arcticCircleContent } from './content/arctic-circle';
+import { antarcticCircleContent } from './content/antarctic-circle';
+import { primeMeridianContent } from './content/prime-meridian';
+import { internationalDateLineContent } from './content/international-date-line';
+import { googleMapsEmbedCodeGeneratorContent } from './content/google-maps-embed-code-generator';
+import { mapWithLegendMakerContent } from './content/map-with-legend-maker';
+import { usTimeZoneMapContent } from './content/us-time-zone-map';
+import { worldTimeZoneMapContent } from './content/world-time-zone-map';
 import {
   whatCountyContent,
   whatStateContent,
@@ -75,6 +114,11 @@ export const TOOL_CONTENT_MAP: Record<string, ToolContent> = {
   'map-radius': mapRadiusContent,
   'map-area-calculator': mapAreaContent,
   'distance-between-places': distanceBetweenPlacesContent,
+  'distance-between-zip-codes': distanceBetweenZipCodesContent,
+  'distance-between-cities': distanceBetweenCitiesContent,
+  'multi-stop-route-distance': multiStopRouteDistanceContent,
+  'distance-matrix-calculator': distanceMatrixContent,
+  'horizon-distance-calculator': horizonDistanceContent,
   'coordinate-distance-calculator': coordinateDistanceContent,
   'drive-time-map': driveTimeMapContent,
   'buffer-map': bufferMapContent,
@@ -84,6 +128,9 @@ export const TOOL_CONTENT_MAP: Record<string, ToolContent> = {
   'latitude-longitude-finder': latLongFinderContent,
   'address-to-coordinates': addressToCoordinatesContent,
   'coordinates-to-address': coordinatesToAddressContent,
+  'coordinates-to-city': coordinatesToCityContent,
+  'coordinates-to-country': coordinatesToCountryContent,
+  'coordinates-to-state': coordinatesToStateContent,
   'gps-coordinate-converter': gpsCoordinateConverterContent,
   'utm-converter': utmConverterContent,
   'mgrs-converter': mgrsConverterContent,
@@ -107,8 +154,25 @@ export const TOOL_CONTENT_MAP: Record<string, ToolContent> = {
   'geojson-to-kml': geojsonToKmlContent,
   'kml-to-geojson': kmlToGeojsonContent,
   'gpx-to-kml': gpxToKmlContent,
+  'kml-to-csv': kmlToCsvContent,
+  'kml-to-gpx': kmlToGpxContent,
+  'kml-editor': kmlEditorContent,
+  'kml-validator': kmlValidatorContent,
+  'kml-to-kmz': kmlToKmzContent,
+  'kmz-to-kml': kmzToKmlContent,
+  'kml-tools': kmlToolsContent,
   'csv-to-map': csvToMapContent,
   'map-drawer': mapDrawerContent,
+  'color-a-map': colorAMapContent,
+  'country-size-comparison': countrySizeComparisonContent,
+  'map-with-counties': mapWithCountiesContent,
+  'map-with-zip-codes': mapWithZipCodesContent,
+  'us-county-map-interactive': usCountyMapInteractiveContent,
+  'find-zip-codes-in-radius': findZipCodesInRadiusContent,
+  'find-cities-in-radius': findCitiesInRadiusContent,
+  'population-within-radius': populationWithinRadiusContent,
+  'county-map-with-cities': countyMapWithCitiesContent,
+  'find-nearest-national-park': findNearestNationalParkContent,
   'pin-drop-map': pinDropMapContent,
 
   // Unit Converters & Speed/Time
@@ -133,6 +197,20 @@ export const TOOL_CONTENT_MAP: Record<string, ToolContent> = {
   'antipode-finder': antipodeFinderContent,
   'earth-tunnel-map': earthTunnelContent,
   'random-location-generator': randomLocationContent,
+  'time-zone-finder': timeZoneFinderContent,
+  'time-difference-calculator': timeDifferenceCalculatorContent,
+  'moon-position-map': moonPositionMapContent,
+  'equator': equatorContent,
+  'tropic-of-cancer': tropicOfCancerContent,
+  'tropic-of-capricorn': tropicOfCapricornContent,
+  'arctic-circle': arcticCircleContent,
+  'antarctic-circle': antarcticCircleContent,
+  'prime-meridian': primeMeridianContent,
+  'international-date-line': internationalDateLineContent,
+  'google-maps-embed-code-generator': googleMapsEmbedCodeGeneratorContent,
+  'map-with-legend-maker': mapWithLegendMakerContent,
+  'us-time-zone-map': usTimeZoneMapContent,
+  'world-time-zone-map': worldTimeZoneMapContent,
 };
 
 export const ALIAS_MAP: Record<string, string> = {
@@ -144,33 +222,12 @@ export const ALIAS_MAP: Record<string, string> = {
   'map-tunnel': 'earth-tunnel-map',
   'my-elevation': 'what-is-my-elevation',
   'crow-flies-distance': 'distance-between-places',
-  'distance-between-cities': 'distance-between-places',
-  'distance-between-zip-codes': 'distance-between-places',
-  'multi-stop-route-distance': 'distance-between-places',
-  'distance-matrix-calculator': 'coordinate-distance-calculator',
-  'horizon-distance-calculator': 'speed-distance-time-calculator',
-  'coordinates-to-city': 'what-city-am-i-in',
-  'coordinates-to-country': 'what-country-am-i-in',
-  'coordinates-to-state': 'what-state-am-i-in',
-  'find-zip-codes-in-radius': 'map-radius',
-  'find-cities-in-radius': 'map-radius',
-  'population-within-radius': 'map-radius',
   'address-to-county-lookup': 'what-county-am-i-in',
-  'county-map-with-cities': 'what-county-am-i-in',
-  'find-nearest-national-park': 'distance-between-places',
   'elevation-profile': 'elevation-finder',
-  'us-time-zone-map': 'sunrise-sunset-calculator',
-  'world-time-zone-map': 'sunrise-sunset-calculator',
-  'time-zone-finder': 'sunrise-sunset-calculator',
-  'time-difference-calculator': 'speed-distance-time-calculator',
-  'moon-position-map': 'moon-phase-calendar',
-  'embed-map': 'map-drawer',
-  'map-with-legend': 'map-drawer',
-  'color-a-map': 'map-drawer',
-  'country-size-comparison': 'map-area-calculator',
-  'map-with-counties': 'what-county-am-i-in',
-  'map-with-zip-codes': 'what-zip-code-am-i-in',
-  'us-county-map-interactive': 'what-county-am-i-in',
+  'us-time-zone-map': 'us-time-zone-map',
+  'world-time-zone-map': 'world-time-zone-map',
+  'embed-map': 'google-maps-embed-code-generator',
+  'map-with-legend': 'map-with-legend-maker',
   'geographic-center': 'geographic-center-finder',
   'location-identity': 'what-county-am-i-in',
 };

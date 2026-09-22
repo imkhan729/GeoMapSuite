@@ -5,11 +5,11 @@ import { downloadFile } from '@/lib/geo/export';
 import { ArrowRight, Upload, Download, Copy, Check, FileCode2, RefreshCw } from 'lucide-react';
 
 interface FormatConverterProps {
-  initialMode?: 'geojson_to_kml' | 'kml_to_geojson' | 'gpx_to_kml';
+  initialMode?: 'geojson_to_kml' | 'kml_to_geojson' | 'gpx_to_kml' | 'kml_to_csv' | 'kml_to_gpx';
 }
 
 export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatConverterProps) {
-  const [mode, setMode] = useState<'geojson_to_kml' | 'kml_to_geojson' | 'gpx_to_kml'>(initialMode);
+  const [mode, setMode] = useState<'geojson_to_kml' | 'kml_to_geojson' | 'gpx_to_kml' | 'kml_to_csv' | 'kml_to_gpx'>(initialMode);
   const [inputText, setInputText] = useState<string>('');
   const [convertedText, setConvertedText] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -37,6 +37,10 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
       } else if (mode === 'gpx_to_kml') {
         const kml = convertGpxToKml(raw);
         setConvertedText(kml);
+      } else if (mode === 'kml_to_csv') {
+        setConvertedText(convertKmlToCsv(raw));
+      } else if (mode === 'kml_to_gpx') {
+        setConvertedText(convertKmlToGpx(raw));
       }
     } catch (err: any) {
       setError(`Conversion failed: ${err.message || 'Invalid syntax'}`);
@@ -57,8 +61,8 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
 
   const handleDownload = () => {
     if (!convertedText) return;
-    const ext = mode === 'kml_to_geojson' ? 'geojson' : 'kml';
-    const mime = mode === 'kml_to_geojson' ? 'application/geo+json' : 'application/vnd.google-earth.kml+xml';
+    const ext = mode === 'kml_to_geojson' ? 'geojson' : mode === 'kml_to_csv' ? 'csv' : mode === 'kml_to_gpx' ? 'gpx' : 'kml';
+    const mime = mode === 'kml_to_geojson' ? 'application/geo+json' : mode === 'kml_to_csv' ? 'text/csv;charset=utf-8' : mode === 'kml_to_gpx' ? 'application/gpx+xml' : 'application/vnd.google-earth.kml+xml';
     downloadFile(convertedText, `converted_${Date.now()}.${ext}`, mime);
   };
 
@@ -71,7 +75,7 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
   return (
     <div className="space-y-6">
       {/* Mode Selector */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-navy-50 p-1.5 rounded-2xl border border-navy-200">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 bg-navy-50 p-1.5 rounded-2xl border border-navy-200">
         <button
           onClick={() => { setMode('geojson_to_kml'); setConvertedText(''); setError(null); }}
           className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
@@ -79,6 +83,22 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
           }`}
         >
           GeoJSON → KML
+        </button>
+        <button
+          onClick={() => { setMode('kml_to_gpx'); setConvertedText(''); setError(null); }}
+          className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+            mode === 'kml_to_gpx' ? 'bg-brand-600 text-white shadow-xs' : 'text-navy-700 hover:bg-white'
+          }`}
+        >
+          KML → GPX
+        </button>
+        <button
+          onClick={() => { setMode('kml_to_csv'); setConvertedText(''); setError(null); }}
+          className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+            mode === 'kml_to_csv' ? 'bg-brand-600 text-white shadow-xs' : 'text-navy-700 hover:bg-white'
+          }`}
+        >
+          KML → CSV
         </button>
         <button
           onClick={() => { setMode('kml_to_geojson'); setConvertedText(''); setError(null); }}
@@ -104,7 +124,7 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
         <div className="bg-white p-4 rounded-2xl border border-navy-200 shadow-xs space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-xs font-bold uppercase tracking-wider text-navy-800">
-              Input {mode === 'geojson_to_kml' ? 'GeoJSON' : mode === 'kml_to_geojson' ? 'KML' : 'GPX'}
+              Input {mode === 'geojson_to_kml' ? 'GeoJSON' : mode === 'kml_to_geojson' || mode === 'kml_to_csv' || mode === 'kml_to_gpx' ? 'KML / KMZ XML' : 'GPX'}
             </span>
             <label className="cursor-pointer text-[11px] font-bold text-brand-600 hover:text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200 flex items-center gap-1">
               <Upload className="h-3 w-3" /> Upload File
@@ -115,7 +135,7 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder={`Paste raw ${mode === 'geojson_to_kml' ? 'GeoJSON' : mode === 'kml_to_geojson' ? 'KML' : 'GPX'} code here...`}
+              placeholder={`Paste raw ${mode === 'geojson_to_kml' ? 'GeoJSON' : mode === 'kml_to_geojson' || mode === 'kml_to_csv' || mode === 'kml_to_gpx' ? 'KML XML' : 'GPX'} code here...`}
             rows={12}
             className="w-full text-xs font-mono bg-navy-950 text-navy-200 p-3 rounded-xl border border-navy-800 focus:outline-none focus:ring-2 focus:ring-brand-500 scrollbar-thin"
           />
@@ -124,7 +144,7 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
             onClick={handleConvert}
             className="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2"
           >
-            <RefreshCw className="h-4 w-4" /> Convert to {mode === 'kml_to_geojson' ? 'GeoJSON' : 'KML'}
+            <RefreshCw className="h-4 w-4" /> Convert to {mode === 'kml_to_geojson' ? 'GeoJSON' : mode === 'kml_to_csv' ? 'CSV' : mode === 'kml_to_gpx' ? 'GPX' : 'KML'}
           </button>
         </div>
 
@@ -132,7 +152,7 @@ export function FormatConverterView({ initialMode = 'geojson_to_kml' }: FormatCo
         <div className="bg-white p-4 rounded-2xl border border-navy-200 shadow-xs space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-xs font-bold uppercase tracking-wider text-navy-800">
-              Output {mode === 'kml_to_geojson' ? 'GeoJSON' : 'KML'}
+              Output {mode === 'kml_to_geojson' ? 'GeoJSON' : mode === 'kml_to_csv' ? 'CSV' : mode === 'kml_to_gpx' ? 'GPX' : 'KML'}
             </span>
             {convertedText && (
               <div className="flex gap-2">
@@ -289,6 +309,46 @@ function convertKmlToGeoJson(kmlText: string): any {
     type: 'FeatureCollection',
     features,
   };
+}
+
+function convertKmlToCsv(kmlText: string): string {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(kmlText, 'text/xml');
+  if (xml.querySelector('parsererror')) throw new Error('The KML is not valid XML.');
+  const rows: string[][] = [['name', 'geometry_type', 'longitude', 'latitude', 'altitude', 'description', 'coordinates']];
+  xml.querySelectorAll('Placemark').forEach((pm) => {
+    const name = pm.querySelector('name')?.textContent?.trim() || 'Placemark';
+    const description = pm.querySelector('description')?.textContent?.trim() || '';
+    const geometry = pm.querySelector('Point, LineString, Polygon');
+    if (!geometry) return;
+    const type = geometry.tagName;
+    const coordinateText = geometry.querySelector('coordinates')?.textContent?.trim().replace(/\s+/g, ' ') || '';
+    const first = coordinateText.split(/\s+/)[0]?.split(',').map(Number) || [];
+    rows.push([name, type, String(first[0] ?? ''), String(first[1] ?? ''), String(first[2] ?? ''), description, coordinateText]);
+  });
+  return rows.map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+}
+
+function convertKmlToGpx(kmlText: string): string {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(kmlText, 'text/xml');
+  if (xml.querySelector('parsererror')) throw new Error('The KML is not valid XML.');
+  const waypoints: string[] = [];
+  const tracks: string[] = [];
+  xml.querySelectorAll('Placemark').forEach((pm, index) => {
+    const name = escapeXml(pm.querySelector('name')?.textContent?.trim() || `KML feature ${index + 1}`);
+    const point = pm.querySelector('Point coordinates')?.textContent?.trim();
+    if (point) {
+      const [lon, lat, ele] = point.split(',').map(Number);
+      if (Number.isFinite(lat) && Number.isFinite(lon)) waypoints.push(`  <wpt lat="${lat}" lon="${lon}"><ele>${Number.isFinite(ele) ? ele : 0}</ele><name>${name}</name></wpt>`);
+    }
+    const line = pm.querySelector('LineString coordinates')?.textContent?.trim();
+    if (line) {
+      const points = line.split(/\s+/).map((pair) => pair.split(',').map(Number)).filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+      if (points.length) tracks.push(`    <trk><name>${name}</name><trkseg>${points.map(([lon, lat, ele]) => `<trkpt lat="${lat}" lon="${lon}"><ele>${Number.isFinite(ele) ? ele : 0}</ele></trkpt>`).join('')}</trkseg></trk>`);
+    }
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="GeoMap Suite" xmlns="http://www.topografix.com/GPX/1/1">\n${waypoints.join('\n')}\n${tracks.join('\n')}\n</gpx>`;
 }
 
 function convertGpxToKml(gpxText: string): string {
