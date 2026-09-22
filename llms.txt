@@ -1,0 +1,100 @@
+# GeoMap Suite
+
+> Fast, privacy-conscious geographic tools for measuring, converting, mapping, exploring, and exporting location data — with transparent methods and open data sources.
+
+## Core Hubs
+- [All Tools](https://geomapsuite.com/tools/): Comprehensive catalog of free spatial calculators.
+- [Printable Blank Maps](https://geomapsuite.com/maps/blank/): Vector and PDF outlines of world, continents, countries, and US states.
+- [US State & County Hub](https://geomapsuite.com/states/): Census demographic tables, FIPS lookups, and county maps.
+- [Methodology & Geodesy](https://geomapsuite.com/methodology/): Karney WGS84 geodesic algorithms and spherical approximations.
+- [Data Sources & Provenance](https://geomapsuite.com/data-sources/): OpenStreetMap, Natural Earth, US Census, NOAA, and Open-Meteo licenses.
+
+## Interactive Tools
+- [Map Radius Tool](https://geomapsuite.com/tools/map-radius/): Draw distance circles on a map in miles, kilometers, or nautical miles. Calculate area and circumference, then export the radius boundary.
+- [Map Area Calculator](https://geomapsuite.com/tools/map-area-calculator/): Calculate land and property area on a map by drawing custom polygons. Instantly get measurements in acres, hectares, square feet, square meters, and square miles.
+- [Distance Between Places](https://geomapsuite.com/tools/distance-between-places/): Calculate high-precision geodesic distance, straight-line Great-Circle distance, compass bearing, and geographic midpoint between any two points or addresses.
+- [Coordinate Distance Calculator](https://geomapsuite.com/tools/coordinate-distance-calculator/): Calculate exact mathematical geodesic and Great-Circle distance between two numerical GPS coordinate pairs with sub-millimeter precision.
+- [Drive Time Map (Isochrone Calculator)](https://geomapsuite.com/tools/drive-time-map/): Create approximate travel-time rings for driving, cycling, or walking from average speeds. Explore 15- to 60-minute areas on a map.
+- [Geofence Generator & Builder](https://geomapsuite.com/tools/geofence-generator/): Create circular and polygon geofences with trigger definitions (enter/exit) and instant GeoJSON export for IoT, fleet tracking, and mobile apps.
+- [Buffer Map (Point, Line & Polygon Buffers)](https://geomapsuite.com/tools/buffer-map/): Create geometric buffer zones around points, lines, and polygons with multi-distance overlays, area calculations, and GeoJSON export.
+- [Latitude and Longitude Finder](https://geomapsuite.com/tools/latitude-longitude-finder/): Find GPS coordinates for any address or click anywhere on the world map to get exact Decimal Degrees (DD), DMS, DMM, UTM, MGRS, and Plus Codes.
+- [Address to Coordinates (Geocoding)](https://geomapsuite.com/tools/address-to-coordinates/): Convert street addresses, cities, landmarks, and ZIP codes into exact latitude and longitude coordinates with administrative breakdown and map verification.
+- [Coordinates to Address (Reverse Geocoding)](https://geomapsuite.com/tools/coordinates-to-address/): Convert GPS latitude and longitude into a structured street address, neighborhood, city, county, state, postal code, and country.
+- [GPS Coordinate Converter](https://geomapsuite.com/tools/gps-coordinate-converter/): Convert coordinates simultaneously between Decimal Degrees (DD), Degrees Minutes Seconds (DMS), Degrees Decimal Minutes (DMM), UTM, MGRS, Geohash, and Plus Codes.
+- [UTM Coordinate Converter](https://geomapsuite.com/tools/utm-converter/): Convert between Universal Transverse Mercator (UTM) coordinates and Latitude/Longitude Decimal Degrees with zone detection.
+- [MGRS Coordinate Converter](https://geomapsuite.com/tools/mgrs-converter/): Convert coordinates to NATO Military Grid Reference System (MGRS) strings and decode MGRS to Latitude/Longitude.
+- [Geohash Converter & Bounding Box Finder](https://geomapsuite.com/tools/geohash-converter/): Encode geographic coordinates into Base32 Geohash strings and decode Geohashes to bounding boxes and lat/lng centroids.
+- [Plus Code Converter (Open Location Code)](https://geomapsuite.com/tools/plus-code-converter/): Convert coordinates into Google Plus Codes (Open Location Codes) and decode Plus Code strings to exact lat/lng centers.
+- [Coordinate Parser & Normalizer](https://geomapsuite.com/tools/coordinate-parser/): Extract and standardize coordinates from unstructured text blocks, emails, and field logs into CSV and GeoJSON.
+- [Bearing Calculator (Forward, Final & Back-Bearing)](https://geomapsuite.com/tools/bearing-calculator/): Calculate initial departure bearing, final arrival bearing, and back-bearing between two locations with 360° compass visualization.
+- [Midpoint Calculator (Geodesic Halfway Point)](https://geomapsuite.com/tools/midpoint-calculator/): Find the exact halfway point along the shortest geodesic path between two locations or addresses on the WGS84 ellipsoid.
+- [Destination Point Calculator (Direct Geodesic)](https://geomapsuite.com/tools/destination-point-calculator/): Calculate the destination latitude and longitude given a starting coordinate, initial bearing angle, and distance.
+- [Bounding Box Calculator (BBOX Generator)](https://geomapsuite.com/tools/bounding-box-calculator/): Generate minimum bounding boxes (BBOX) around locations, coordinates, or radius buffers in GeoJSON, WMS, and PostGIS formats.
+- [Geographic Center Finder (Centroid & Midpoint)](https://geomapsuite.com/tools/geographic-center-finder/): Find the true 3D spherical center of mass (centroid), bounding box midpoint, or optimal central meeting place for multiple locations.
+- [KML / KMZ File Viewer & Converter](https://geomapsuite.com/tools/kml-viewer/): View Google Earth KML files on an interactive web map with zero software installation. Inspect layer geometries and convert to GeoJSON or CSV.
+- [GPX Track Viewer & Route Analyzer](https://geomapsuite.com/tools/gpx-viewer/): View GPS track logs (GPX) on a map with elevation profiles, total distance, pace statistics, waypoint markers, and GeoJSON export.
+- [GeoJSON Viewer & Validator](https://geomapsuite.com/tools/geojson-viewer/): Visualize, inspect, validate, and edit GeoJSON files on a responsive map. View attribute tables, feature counts, and geometry properties.
+- [Shapefile Viewer & Attribute Table Inspector](https://geomapsuite.com/tools/shapefile-viewer/): View ESRI Shapefiles (.shp, .dbf, .prj, .zip) online in a browser without QGIS or ArcGIS desktop software.
+- [GeoJSON Validator (RFC 7946 Compliance)](https://geomapsuite.com/tools/geojson-validator/): Validate GeoJSON syntax, coordinate ordering [longitude, latitude], ring closures, and RFC 7946 specifications with line error reports.
+- [GeoJSON to KML Converter](https://geomapsuite.com/tools/geojson-to-kml/): Convert RFC 7946 GeoJSON files to Google Earth KML 2.2 files with 100% in-browser privacy.
+- [KML to GeoJSON Converter](https://geomapsuite.com/tools/kml-to-geojson/): Convert Google Earth KML files to RFC 7946 GeoJSON FeatureCollections for web mapping and GIS.
+- [GPX to KML Converter](https://geomapsuite.com/tools/gpx-to-kml/): Convert GPS track logs (GPX) into Google Earth KML files with full 3D elevation profile support.
+- [KML to CSV Converter](https://geomapsuite.com/tools/kml-to-csv/): Convert KML placemarks to a spreadsheet-ready CSV with coordinates, geometry types, descriptions, and attributes in your browser.
+- [KML to GPX Converter](https://geomapsuite.com/tools/kml-to-gpx/): Convert KML points and routes to GPX waypoints and tracks for GPS devices and outdoor mapping apps in your browser.
+- [KML Editor Online](https://geomapsuite.com/tools/kml-editor/): Edit KML placemark names, visibility, and basic colors online, then download a clean KML file privately in your browser.
+- [KML Validator](https://geomapsuite.com/tools/kml-validator/): Check KML XML structure, namespaces, placemarks, and coordinate bounds online before importing into Google Earth or GIS software.
+- [KML to KMZ Converter](https://geomapsuite.com/tools/kml-to-kmz/): Package a valid KML document into a Google Earth KMZ ZIP archive locally without uploading your map file.
+- [KMZ to KML Converter](https://geomapsuite.com/tools/kmz-to-kml/): Extract the main KML document from a KMZ ZIP archive locally for editing, validation, or GIS conversion.
+- [KML Tools](https://geomapsuite.com/tools/kml-tools/): Browse free KML and KMZ tools for viewing, converting, editing, validating, and packaging geographic files.
+- [CSV to Map (Batch Point Plotter)](https://geomapsuite.com/tools/csv-to-map/): Plot thousands of locations from spreadsheet CSV or Excel files on an interactive map. Auto-detects latitude/longitude columns with 100% client-side privacy.
+- [Map Drawer (Shapes, Lines & Polygons)](https://geomapsuite.com/tools/map-drawer/): Draw custom polygons, lines, circles, and markers on a map with full undo/redo history, area/distance calculations, and multi-format vector export.
+- [Pin Drop Map (Multi-Marker Creator)](https://geomapsuite.com/tools/pin-drop-map/): Drop custom markers on an interactive map, assign colors and labels, add descriptive notes, and share or export your map as GeoJSON, KML, CSV, or PNG.
+- [Land Area Unit Converter](https://geomapsuite.com/tools/area-unit-converter/): Convert land area between Acres, Hectares, Square Feet, Square Meters, Square Miles, Cuerdas, Rai, and Bigha.
+- [Distance Unit Converter](https://geomapsuite.com/tools/distance-unit-converter/): Convert linear distance between Miles, Kilometers, Nautical Miles, Feet, Meters, Yards, Rods, Chains, and Furlongs.
+- [Speed, Distance & Time Calculator](https://geomapsuite.com/tools/speed-distance-time-calculator/): Calculate travel duration, required speed, or travel distance with pace splits and speed presets for driving, flights, and walking.
+- [What County Am I In?](https://geomapsuite.com/tools/what-county-am-i-in/): Find your current US county instantly using device GPS or by entering any street address or city name. View county FIPS codes, area, and population.
+- [What State Am I In?](https://geomapsuite.com/tools/what-state-am-i-in/): Determine your current US state or territory using GPS or address lookup. View state facts, capital, county breakdown, and state boundary maps.
+- [What City Am I In?](https://geomapsuite.com/tools/what-city-am-i-in/): Find the city, municipality, or incorporated township you are currently in using GPS coordinates or address search.
+- [What ZIP Code Am I In?](https://geomapsuite.com/tools/what-zip-code-am-i-in/): Look up the US ZIP Code / Postal Code for your current location or any clicked map position, with ZCTA boundary outlines.
+- [What Country Am I In?](https://geomapsuite.com/tools/what-country-am-i-in/): Determine the sovereign country or territorial jurisdiction of your current position, including ISO codes, capital, and continent.
+- [Elevation Finder & Altitude Map](https://geomapsuite.com/tools/elevation-finder/): Find ground elevation above sea level for any address, coordinates, or point on the world map. View elevation in feet and meters with terrain profile sampling.
+- [What Is My Elevation?](https://geomapsuite.com/tools/what-is-my-elevation/): Instantly find your current altitude and ground elevation above sea level using device GPS and verified digital elevation terrain models.
+- [Sunrise & Sunset Calculator](https://geomapsuite.com/tools/sunrise-sunset-calculator/): Calculate exact astronomical, civil, and nautical sunrise, sunset, dusk, dawn, solar noon, and day length for any location and date.
+- [Sun Position & Solar Angle Calculator](https://geomapsuite.com/tools/sun-position-calculator/): Calculate live solar azimuth, solar altitude angle, shadow length, and sun tracking paths for solar panel optimization, photography, and architecture.
+- [Day & Night World Map (Solar Terminator)](https://geomapsuite.com/tools/day-night-map/): Interactive global map showing the real-time day/night solar terminator curve, current sun subsolar point, and darkness overlay.
+- [Moon Phase Calendar & Lunar Position](https://geomapsuite.com/tools/moon-phase-calendar/): Track lunar phases, moon illumination percentage, moonrise, moonset, and next Full Moon and New Moon dates worldwide.
+- [Antipode Finder (Opposite Side of Earth)](https://geomapsuite.com/tools/antipode-finder/): Find the exact point directly on the opposite side of the globe from any address or coordinate pair with dual interactive maps.
+- [Earth Tunnel Map (Dig Through the Globe)](https://geomapsuite.com/tools/earth-tunnel-map/): Simulate digging a straight tunnel through the center of the Earth to discover what ocean or country you would emerge in.
+- [Random Location Generator](https://geomapsuite.com/tools/random-location-generator/): Generate truly uniform random points on Earth surface using spherical distribution, with options to filter for land-only or specific continents.
+- [Distance Between ZIP Codes](https://geomapsuite.com/tools/distance-between-zip-codes/): Distance between two US ZIP codes with population data and interactive map visualization.
+- [Distance Between Cities](https://geomapsuite.com/tools/distance-between-cities/): Distance between two US cities with straight-line distance, driving estimate, and map route.
+- [Multi-Stop Route Distance](https://geomapsuite.com/tools/multi-stop-route-distance/): Total trip mileage across up to 25 waypoints with optional best-order route optimization.
+- [Distance Matrix Calculator](https://geomapsuite.com/tools/distance-matrix-calculator/): N×N pairwise distance matrix between 2-50 points with heatmap, CSV export, and optional driving distances.
+- [Horizon Distance Calculator](https://geomapsuite.com/tools/horizon-distance-calculator/): How far is the horizon? Distance, dip angle, and visible landmarks by observer eye height from beach to ISS.
+- [Coordinates to City](https://geomapsuite.com/tools/coordinates-to-city/): Lat/lng to city name with state, country, and county worldwide via OpenStreetMap.
+- [Coordinates to Country](https://geomapsuite.com/tools/coordinates-to-country/): Lat/lng to country name with flag emoji, ISO 3166-1 code, capital, and continent.
+- [Coordinates to State](https://geomapsuite.com/tools/coordinates-to-state/): Lat/lng to US state name with two-letter abbreviation, county, capital, and ZIP code.
+- [Google Maps Embed Code Generator](https://geomapsuite.com/tools/google-maps-embed-code-generator/): Generate responsive Google Maps iframe code for a place or landmark without an API key.
+- [Map With Legend Maker](https://geomapsuite.com/tools/map-with-legend-maker/): Create a custom map legend with labels, colors, and a copyable configuration.
+- [Color a Map](https://geomapsuite.com/tools/color-a-map/): Click any country, US state, or region to fill it with color groups and export high-res vector maps.
+- [Country Size Comparison](https://geomapsuite.com/tools/country-size-comparison/): Overlay and drag true-scale country outlines across the globe to compare actual landmasses without Mercator distortion.
+- [Map with Counties](https://geomapsuite.com/tools/map-with-counties/): Interactive US county boundary map with search, hover population data, and county coloring tools.
+- [Map with ZIP Codes](https://geomapsuite.com/tools/map-with-zip-codes/): Interactive US ZIP code boundary map with search, radius circles, and demographic overlays.
+- [US County Map Interactive](https://geomapsuite.com/tools/us-county-map-interactive/): Explore all 3,143 US counties interactively with population, median income, land area, and state filter.
+- [Find ZIP Codes in Radius](https://geomapsuite.com/tools/find-zip-codes-in-radius/): Find all US ZIP codes within a custom mile or kilometer radius of any address, city, or coordinate.
+- [Find Cities in Radius](https://geomapsuite.com/tools/find-cities-in-radius/): Find all incorporated cities, towns, and municipalities within X miles of any location.
+- [Population Within Radius](https://geomapsuite.com/tools/population-within-radius/): Estimate total population living within any distance circle (1 to 100 miles) in the United States.
+- [County Map with Cities](https://geomapsuite.com/tools/county-map-with-cities/): View US county boundaries with all incorporated cities and major towns plotted and labeled.
+- [Find Nearest National Park](https://geomapsuite.com/tools/find-nearest-national-park/): Find which US National Parks and Monuments are closest to you or any entered location with driving distances.
+- [US Time Zone Map](https://geomapsuite.com/tools/us-time-zone-map/): Interactive map of US time zones (Eastern, Central, Mountain, Pacific, Alaska, Hawaii) with current live times.
+- [World Time Zone Map](https://geomapsuite.com/tools/world-time-zone-map/): Explore global UTC offset bands, representative regions, the International Date Line, and browser time with a clear world time-zone guide.
+- [Time Zone Finder](https://geomapsuite.com/tools/time-zone-finder/): Look up the exact time zone and current local time for any address, city, or GPS coordinate pair.
+- [Time Difference Calculator](https://geomapsuite.com/tools/time-difference-calculator/): Calculate time difference and meeting overlap between two cities or time zones worldwide.
+- [Moon Position Map](https://geomapsuite.com/tools/moon-position-map/): Live lunar sub-lunar position, azimuth, altitude angle, and moon ground track across the globe.
+- [Equator](https://geomapsuite.com/tools/equator/): Explore an interactive Equator map at 0° latitude, inspect coordinates, see the countries crossed on land, and learn how its WGS 84 circumference is derived.
+- [Tropic of Cancer](https://geomapsuite.com/tools/tropic-of-cancer/): Explore an interactive Tropic of Cancer map near 23.5° north, inspect coordinates and country crossings, and learn how the line relates to the June solstice.
+- [Tropic of Capricorn](https://geomapsuite.com/tools/tropic-of-capricorn/): Explore an interactive Tropic of Capricorn map at an approximate 23.5° S reference latitude. Inspect coordinates, commonly listed country crossings, and the December solstice connection.
+- [Arctic Circle](https://geomapsuite.com/tools/arctic-circle/): Explore an interactive Arctic Circle map near 66.56° N. Inspect longitude coordinates, learn about Arctic states, and understand the midnight sun and polar night limits.
+- [Antarctic Circle](https://geomapsuite.com/tools/antarctic-circle/): Explore an interactive Antarctic Circle map near 66.56° S. Inspect coordinates and learn how the approximate latitude relates to polar day, polar night, and the Antarctic Treaty area.
+- [Prime Meridian](https://geomapsuite.com/tools/prime-meridian/): Interactive map of the Greenwich Prime Meridian (0° Longitude), GMT/UTC baseline, and countries crossed.
+- [International Date Line](https://geomapsuite.com/tools/international-date-line/): Interactive map of the International Date Line (approx. 180° Longitude) across the Pacific with zig-zag offsets.

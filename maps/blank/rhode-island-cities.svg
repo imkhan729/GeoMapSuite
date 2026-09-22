@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <title>Rhode Island Map with Major Cities</title>
+  <rect width="100%" height="100%" fill="white"/>
+  <g>
+    <path d="M692.825,322.213L735.153,335.775L742.208,477.975L695.177,512.531L681.068,435.879L685.771,387.731L662.256,371.17L666.959,490.748L626.983,489.246L622.28,515.535L598.764,520.791L596.413,479.478L634.037,408.048L652.849,356.864ZM582.304,335.022L594.061,329.748L619.928,368.912L608.17,374.182ZM558.788,510.278L572.897,471.963L563.491,454.676L575.249,411.81L584.655,426.854L584.655,490.748Z" fill="none" stroke="#333" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M304.823,278.493L518.812,272.46L532.921,249.83L568.194,250.584L582.304,285.279L577.601,324.474L525.867,311.663L554.085,341.048L514.109,358.37L504.703,386.225L304.823,391.494L304.823,353.099Z" fill="none" stroke="#333" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M297.768,29.848L495.297,21.515L570.546,20L570.546,50.295L570.546,131.252L598.764,126.716L594.061,187.929L612.873,233.984L584.655,251.339L568.194,250.584L532.921,249.83L518.812,272.46L304.823,278.493L297.768,110.835Z" fill="none" stroke="#333" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M420.048,772.525L445.915,712.689L457.672,723.165L460.024,780ZM257.792,633.31L276.605,611.574L269.55,554.57L297.768,548.566L304.823,391.494L504.703,386.225L514.109,358.37L554.085,341.048L556.437,397.514L528.218,405.791L547.031,445.654L547.031,499.763L523.515,533.554L504.703,588.329L476.485,583.829L412.993,597.328L349.502,622.818L260.144,645.299Z" fill="none" stroke="#333" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M584.655,251.339L612.873,233.984L650.498,255.111L674.013,291.311L666.959,325.227L634.037,356.111L619.928,324.474L629.334,298.096Z" fill="none" stroke="#333" stroke-width="0.8" stroke-linejoin="round"/>
+    <path d="M692.825,322.213L735.153,335.775L742.208,477.975L695.177,512.531L681.068,435.879L685.771,387.731L662.256,371.17L666.959,490.748L626.983,489.246L622.28,515.535L598.764,520.791L596.413,479.478L634.037,408.048L652.849,356.864ZM582.304,335.022L594.061,329.748L619.928,368.912L608.17,374.182ZM558.788,510.278L572.897,471.963L563.491,454.676L575.249,411.81L584.655,426.854L584.655,490.748ZM584.655,251.339L568.194,250.584L582.304,285.279L577.601,324.474L525.867,311.663L554.085,341.048L556.437,397.514L528.218,405.791L547.031,445.654L547.031,499.763L523.515,533.554L504.703,588.329L476.485,583.829L412.993,597.328L349.502,622.818L260.144,645.299L257.792,633.31L276.605,611.574L269.55,554.57L297.768,548.566L304.823,391.494L304.823,353.099L304.823,278.493L297.768,110.835L297.768,29.848L495.297,21.515L570.546,20L570.546,50.295L570.546,131.252L598.764,126.716L594.061,187.929L612.873,233.984L650.498,255.111L674.013,291.311L666.959,325.227L634.037,356.111L619.928,324.474L629.334,298.096ZM420.048,772.525L445.915,712.689L457.672,723.165L460.024,780Z" fill="none" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>
+    <g class="city-dots">
+    <circle cx="541.9" cy="190.9" r="6" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="541.9" y="180.9" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Providence</text>
+    <circle cx="543.8" cy="286.5" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="543.8" y="277.5" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Warwick</text>
+    <circle cx="575.3" cy="148.3" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="575.3" y="139.3" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Pawtucket</text>
+    <circle cx="516.9" cy="240.0" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="516.9" y="231.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Cranston</text>
+    <circle cx="494.0" cy="35.9" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="494.0" y="26.9" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Woonsocket</text>
+    <circle cx="546.0" cy="63.1" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="546.0" y="54.1" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Cumberland</text>
+    <circle cx="415.2" cy="309.2" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="415.2" y="300.2" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Coventry</text>
+    <circle cx="483.2" cy="302.0" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="483.2" y="293.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">West Warwick</text>
+    <circle cx="480.4" cy="188.9" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="480.4" y="179.9" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Johnston</text>
+    <circle cx="611.3" cy="493.1" r="5" fill="#2a6e4e" stroke="#fff" stroke-width="1.8"/>
+    <text x="611.3" y="484.1" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#1a1a18" stroke="#fff" stroke-width="3" paint-order="stroke">Newport</text>
+  </g>
+  </g>
+</svg>
